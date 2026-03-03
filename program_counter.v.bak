@@ -1,0 +1,4 @@
+module program_counter(inout [7:0] bit_bus);
+
+	assign bus = 8'bz;
+endmodule

@@ -1,0 +1,1227 @@
+Timing Analyzer report for computer_fpga
+Tue Mar  3 08:44:48 2026
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 100C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 100C Model Setup Summary
+  8. Slow 1200mV 100C Model Hold Summary
+  9. Slow 1200mV 100C Model Recovery Summary
+ 10. Slow 1200mV 100C Model Removal Summary
+ 11. Slow 1200mV 100C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 100C Model Setup: 'clk'
+ 13. Slow 1200mV 100C Model Hold: 'clk'
+ 14. Slow 1200mV 100C Model Metastability Summary
+ 15. Slow 1200mV -40C Model Fmax Summary
+ 16. Slow 1200mV -40C Model Setup Summary
+ 17. Slow 1200mV -40C Model Hold Summary
+ 18. Slow 1200mV -40C Model Recovery Summary
+ 19. Slow 1200mV -40C Model Removal Summary
+ 20. Slow 1200mV -40C Model Minimum Pulse Width Summary
+ 21. Slow 1200mV -40C Model Setup: 'clk'
+ 22. Slow 1200mV -40C Model Hold: 'clk'
+ 23. Slow 1200mV -40C Model Metastability Summary
+ 24. Fast 1200mV -40C Model Setup Summary
+ 25. Fast 1200mV -40C Model Hold Summary
+ 26. Fast 1200mV -40C Model Recovery Summary
+ 27. Fast 1200mV -40C Model Removal Summary
+ 28. Fast 1200mV -40C Model Minimum Pulse Width Summary
+ 29. Fast 1200mV -40C Model Setup: 'clk'
+ 30. Fast 1200mV -40C Model Hold: 'clk'
+ 31. Fast 1200mV -40C Model Metastability Summary
+ 32. Multicorner Timing Analysis Summary
+ 33. Board Trace Model Assignments
+ 34. Input Transition Times
+ 35. Signal Integrity Metrics (Slow 1200mv n40c Model)
+ 36. Signal Integrity Metrics (Slow 1200mv 100c Model)
+ 37. Signal Integrity Metrics (Fast 1200mv n40c Model)
+ 38. Setup Transfers
+ 39. Hold Transfers
+ 40. Report TCCS
+ 41. Report RSKM
+ 42. Unconstrained Paths Summary
+ 43. Clock Status Summary
+ 44. Unconstrained Input Ports
+ 45. Unconstrained Output Ports
+ 46. Unconstrained Input Ports
+ 47. Unconstrained Output Ports
+ 48. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++---------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                         ;
++-----------------------+---------------------------------------------------------+
+; Quartus Prime Version ; Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
+; Timing Analyzer       ; Timing Analyzer                                         ;
+; Revision Name         ; computer_fpga                                           ;
+; Device Family         ; Cyclone 10 LP                                           ;
+; Device Name           ; 10CL025YU256I7G                                         ;
+; Timing Models         ; Final                                                   ;
+; Delay Model           ; Combined                                                ;
+; Rise/Fall Delays      ; Enabled                                                 ;
++-----------------------+---------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.03        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.9%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++--------------------------------------------------+
+; Slow 1200mV 100C Model Fmax Summary              ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 187.37 MHz ; 187.37 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++--------------------------------------+
+; Slow 1200mV 100C Model Setup Summary ;
++-------+--------+---------------------+
+; Clock ; Slack  ; End Point TNS       ;
++-------+--------+---------------------+
+; clk   ; -4.337 ; -112.755            ;
++-------+--------+---------------------+
+
+
++-------------------------------------+
+; Slow 1200mV 100C Model Hold Summary ;
++-------+-------+---------------------+
+; Clock ; Slack ; End Point TNS       ;
++-------+-------+---------------------+
+; clk   ; 0.418 ; 0.000               ;
++-------+-------+---------------------+
+
+
+-------------------------------------------
+; Slow 1200mV 100C Model Recovery Summary ;
+-------------------------------------------
+No paths to report.
+
+
+------------------------------------------
+; Slow 1200mV 100C Model Removal Summary ;
+------------------------------------------
+No paths to report.
+
+
++----------------------------------------------------+
+; Slow 1200mV 100C Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------------------+
+; Clock ; Slack  ; End Point TNS                     ;
++-------+--------+-----------------------------------+
+; clk   ; -3.000 ; -45.405                           ;
++-------+--------+-----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 100C Model Setup: 'clk'                                                                                                                          ;
++--------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                             ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; -4.337 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.070     ; 5.265      ;
+; -4.300 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.070     ; 5.228      ;
+; -4.203 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.070     ; 5.131      ;
+; -4.202 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.070     ; 5.130      ;
+; -4.183 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.070     ; 5.111      ;
+; -4.171 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.070     ; 5.099      ;
+; -4.167 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.070     ; 5.095      ;
+; -4.166 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.070     ; 5.094      ;
+; -4.116 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.070     ; 5.044      ;
+; -4.088 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.070     ; 5.016      ;
+; -4.072 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.070     ; 5.000      ;
+; -4.069 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.997      ;
+; -4.068 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.996      ;
+; -4.066 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.994      ;
+; -4.059 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.987      ;
+; -4.049 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.977      ;
+; -4.037 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.965      ;
+; -4.033 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.961      ;
+; -4.032 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.960      ;
+; -4.022 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.950      ;
+; -4.015 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.943      ;
+; -4.011 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.939      ;
+; -3.995 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.923      ;
+; -3.982 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.910      ;
+; -3.975 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.903      ;
+; -3.971 ; program_counter:pc_inst|prescaler[6]  ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.897      ;
+; -3.968 ; program_counter:pc_inst|prescaler[7]  ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.894      ;
+; -3.958 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.886      ;
+; -3.954 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.882      ;
+; -3.945 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.873      ;
+; -3.945 ; program_counter:pc_inst|prescaler[24] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.494     ; 4.449      ;
+; -3.938 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.866      ;
+; -3.935 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.863      ;
+; -3.934 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.862      ;
+; -3.932 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.860      ;
+; -3.929 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.337      ; 5.264      ;
+; -3.925 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.853      ;
+; -3.917 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.845      ;
+; -3.915 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.843      ;
+; -3.910 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.337      ; 5.245      ;
+; -3.903 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.831      ;
+; -3.902 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.830      ;
+; -3.899 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.827      ;
+; -3.898 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.826      ;
+; -3.896 ; program_counter:pc_inst|prescaler[15] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.824      ;
+; -3.892 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.820      ;
+; -3.888 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.816      ;
+; -3.881 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.809      ;
+; -3.879 ; program_counter:pc_inst|prescaler[6]  ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.805      ;
+; -3.877 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.805      ;
+; -3.872 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.800      ;
+; -3.864 ; program_counter:pc_inst|prescaler[24] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.494     ; 4.368      ;
+; -3.862 ; program_counter:pc_inst|prescaler[7]  ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.788      ;
+; -3.861 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.789      ;
+; -3.848 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.776      ;
+; -3.841 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.769      ;
+; -3.837 ; program_counter:pc_inst|prescaler[6]  ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.763      ;
+; -3.834 ; program_counter:pc_inst|prescaler[7]  ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.760      ;
+; -3.832 ; program_counter:pc_inst|prescaler[11] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.758      ;
+; -3.824 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.752      ;
+; -3.820 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.748      ;
+; -3.815 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.337      ; 5.150      ;
+; -3.811 ; program_counter:pc_inst|prescaler[24] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.494     ; 4.315      ;
+; -3.811 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.739      ;
+; -3.804 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.732      ;
+; -3.801 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[15] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.729      ;
+; -3.800 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[16] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.728      ;
+; -3.799 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.337      ; 5.134      ;
+; -3.798 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.726      ;
+; -3.791 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.719      ;
+; -3.786 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.337      ; 5.121      ;
+; -3.783 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.711      ;
+; -3.781 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[16] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.709      ;
+; -3.775 ; program_counter:pc_inst|prescaler[9]  ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.701      ;
+; -3.769 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.697      ;
+; -3.768 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.696      ;
+; -3.765 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.693      ;
+; -3.764 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[15] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.692      ;
+; -3.762 ; program_counter:pc_inst|prescaler[15] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.690      ;
+; -3.758 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.686      ;
+; -3.754 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.682      ;
+; -3.747 ; program_counter:pc_inst|prescaler[15] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.675      ;
+; -3.747 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.675      ;
+; -3.745 ; program_counter:pc_inst|prescaler[6]  ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.671      ;
+; -3.743 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.671      ;
+; -3.738 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.666      ;
+; -3.730 ; program_counter:pc_inst|prescaler[24] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.494     ; 4.234      ;
+; -3.728 ; program_counter:pc_inst|prescaler[11] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.654      ;
+; -3.728 ; program_counter:pc_inst|prescaler[7]  ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.654      ;
+; -3.727 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.655      ;
+; -3.714 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.642      ;
+; -3.707 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.635      ;
+; -3.703 ; program_counter:pc_inst|prescaler[6]  ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.629      ;
+; -3.700 ; program_counter:pc_inst|prescaler[7]  ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.626      ;
+; -3.698 ; program_counter:pc_inst|prescaler[11] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.072     ; 4.624      ;
+; -3.690 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.618      ;
+; -3.686 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[16] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.614      ;
+; -3.685 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.337      ; 5.020      ;
+; -3.677 ; program_counter:pc_inst|prescaler[24] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.494     ; 4.181      ;
+; -3.677 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.070     ; 4.605      ;
++--------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 100C Model Hold: 'clk'                                                                                                                            ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.418 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.070      ; 0.674      ;
+; 0.418 ; program_counter:pc_inst|counter_reg[7] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.070      ; 0.674      ;
+; 0.418 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 0.000        ; 0.070      ; 0.674      ;
+; 0.418 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.070      ; 0.674      ;
+; 0.418 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.070      ; 0.674      ;
+; 0.418 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.070      ; 0.674      ;
+; 0.418 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.070      ; 0.674      ;
+; 0.446 ; program_counter:pc_inst|prescaler[24]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.087      ; 0.719      ;
+; 0.589 ; program_counter:pc_inst|prescaler[22]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.494      ; 1.269      ;
+; 0.650 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[3]   ; clk          ; clk         ; 0.000        ; 0.070      ; 0.906      ;
+; 0.650 ; program_counter:pc_inst|prescaler[5]   ; program_counter:pc_inst|prescaler[5]   ; clk          ; clk         ; 0.000        ; 0.070      ; 0.906      ;
+; 0.653 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[4]   ; clk          ; clk         ; 0.000        ; 0.070      ; 0.909      ;
+; 0.654 ; program_counter:pc_inst|prescaler[9]   ; program_counter:pc_inst|prescaler[9]   ; clk          ; clk         ; 0.000        ; 0.070      ; 0.910      ;
+; 0.655 ; program_counter:pc_inst|prescaler[11]  ; program_counter:pc_inst|prescaler[11]  ; clk          ; clk         ; 0.000        ; 0.070      ; 0.911      ;
+; 0.656 ; program_counter:pc_inst|prescaler[7]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.070      ; 0.912      ;
+; 0.659 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[19]  ; clk          ; clk         ; 0.000        ; 0.070      ; 0.915      ;
+; 0.660 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.070      ; 0.916      ;
+; 0.662 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[20]  ; clk          ; clk         ; 0.000        ; 0.070      ; 0.918      ;
+; 0.673 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[13]  ; clk          ; clk         ; 0.000        ; 0.070      ; 0.929      ;
+; 0.675 ; program_counter:pc_inst|prescaler[21]  ; program_counter:pc_inst|prescaler[21]  ; clk          ; clk         ; 0.000        ; 0.070      ; 0.931      ;
+; 0.675 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[12]  ; clk          ; clk         ; 0.000        ; 0.070      ; 0.931      ;
+; 0.676 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[14]  ; clk          ; clk         ; 0.000        ; 0.070      ; 0.932      ;
+; 0.676 ; program_counter:pc_inst|prescaler[0]   ; program_counter:pc_inst|prescaler[0]   ; clk          ; clk         ; 0.000        ; 0.087      ; 0.949      ;
+; 0.678 ; program_counter:pc_inst|prescaler[22]  ; program_counter:pc_inst|prescaler[22]  ; clk          ; clk         ; 0.000        ; 0.070      ; 0.934      ;
+; 0.698 ; program_counter:pc_inst|prescaler[21]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.494      ; 1.378      ;
+; 0.701 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.494      ; 1.381      ;
+; 0.810 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.494      ; 1.490      ;
+; 0.815 ; program_counter:pc_inst|prescaler[2]   ; program_counter:pc_inst|prescaler[2]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.071      ;
+; 0.825 ; program_counter:pc_inst|prescaler[10]  ; program_counter:pc_inst|prescaler[10]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.081      ;
+; 0.838 ; program_counter:pc_inst|prescaler[18]  ; program_counter:pc_inst|prescaler[18]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.094      ;
+; 0.838 ; program_counter:pc_inst|prescaler[6]   ; program_counter:pc_inst|prescaler[6]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.094      ;
+; 0.839 ; program_counter:pc_inst|prescaler[8]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.095      ;
+; 0.841 ; program_counter:pc_inst|prescaler[15]  ; program_counter:pc_inst|prescaler[15]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.097      ;
+; 0.842 ; program_counter:pc_inst|prescaler[17]  ; program_counter:pc_inst|prescaler[17]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.098      ;
+; 0.936 ; program_counter:pc_inst|prescaler[23]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.494      ; 1.616      ;
+; 0.955 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.494      ; 1.635      ;
+; 0.969 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[4]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.225      ;
+; 0.969 ; program_counter:pc_inst|prescaler[5]   ; program_counter:pc_inst|prescaler[6]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.225      ;
+; 0.973 ; program_counter:pc_inst|prescaler[9]   ; program_counter:pc_inst|prescaler[10]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.229      ;
+; 0.975 ; program_counter:pc_inst|prescaler[7]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.231      ;
+; 0.976 ; program_counter:pc_inst|prescaler[11]  ; program_counter:pc_inst|prescaler[12]  ; clk          ; clk         ; 0.000        ; 0.068      ; 1.230      ;
+; 0.978 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[20]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.234      ;
+; 0.984 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[5]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.240      ;
+; 0.988 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[6]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.244      ;
+; 0.991 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[17]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.247      ;
+; 0.992 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[14]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.248      ;
+; 0.993 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[21]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.249      ;
+; 0.994 ; program_counter:pc_inst|prescaler[21]  ; program_counter:pc_inst|prescaler[22]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.250      ;
+; 0.995 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[18]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.251      ;
+; 0.997 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[22]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.253      ;
+; 1.005 ; program_counter:pc_inst|prescaler[18]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.494      ; 1.685      ;
+; 1.006 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[13]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.262      ;
+; 1.007 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[15]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.263      ;
+; 1.009 ; program_counter:pc_inst|prescaler[22]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.265      ;
+; 1.010 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[14]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.266      ;
+; 1.011 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.267      ;
+; 1.017 ; program_counter:pc_inst|prescaler[1]   ; program_counter:pc_inst|prescaler[1]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.273      ;
+; 1.059 ; program_counter:pc_inst|prescaler[23]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.315      ;
+; 1.063 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 0.000        ; 0.070      ; 1.319      ;
+; 1.092 ; program_counter:pc_inst|prescaler[24]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; -0.337     ; 0.941      ;
+; 1.093 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[5]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.349      ;
+; 1.093 ; program_counter:pc_inst|prescaler[5]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.349      ;
+; 1.097 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[6]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.353      ;
+; 1.097 ; program_counter:pc_inst|prescaler[5]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.353      ;
+; 1.097 ; program_counter:pc_inst|prescaler[9]   ; program_counter:pc_inst|prescaler[11]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.353      ;
+; 1.099 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.494      ; 1.779      ;
+; 1.099 ; program_counter:pc_inst|prescaler[7]   ; program_counter:pc_inst|prescaler[9]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.355      ;
+; 1.100 ; program_counter:pc_inst|prescaler[11]  ; program_counter:pc_inst|prescaler[13]  ; clk          ; clk         ; 0.000        ; 0.068      ; 1.354      ;
+; 1.102 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[21]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.358      ;
+; 1.103 ; program_counter:pc_inst|prescaler[9]   ; program_counter:pc_inst|prescaler[12]  ; clk          ; clk         ; 0.000        ; 0.068      ; 1.357      ;
+; 1.103 ; program_counter:pc_inst|prescaler[7]   ; program_counter:pc_inst|prescaler[10]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.359      ;
+; 1.104 ; program_counter:pc_inst|prescaler[11]  ; program_counter:pc_inst|prescaler[14]  ; clk          ; clk         ; 0.000        ; 0.068      ; 1.358      ;
+; 1.106 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[22]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.362      ;
+; 1.112 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.368      ;
+; 1.116 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.372      ;
+; 1.116 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[15]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.372      ;
+; 1.118 ; program_counter:pc_inst|prescaler[21]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.374      ;
+; 1.119 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[19]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.375      ;
+; 1.120 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.376      ;
+; 1.121 ; program_counter:pc_inst|prescaler[17]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.494      ; 1.801      ;
+; 1.121 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.377      ;
+; 1.123 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[20]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.379      ;
+; 1.134 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[15]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.390      ;
+; 1.135 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[17]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.391      ;
+; 1.138 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.394      ;
+; 1.139 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[18]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.395      ;
+; 1.146 ; program_counter:pc_inst|prescaler[2]   ; program_counter:pc_inst|prescaler[3]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.402      ;
+; 1.150 ; program_counter:pc_inst|prescaler[2]   ; program_counter:pc_inst|prescaler[4]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.406      ;
+; 1.155 ; program_counter:pc_inst|prescaler[10]  ; program_counter:pc_inst|prescaler[11]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.411      ;
+; 1.160 ; program_counter:pc_inst|prescaler[15]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.416      ;
+; 1.161 ; program_counter:pc_inst|prescaler[10]  ; program_counter:pc_inst|prescaler[12]  ; clk          ; clk         ; 0.000        ; 0.068      ; 1.415      ;
+; 1.161 ; program_counter:pc_inst|prescaler[17]  ; program_counter:pc_inst|prescaler[18]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.417      ;
+; 1.168 ; program_counter:pc_inst|prescaler[6]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.424      ;
+; 1.169 ; program_counter:pc_inst|prescaler[8]   ; program_counter:pc_inst|prescaler[9]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.425      ;
+; 1.169 ; program_counter:pc_inst|prescaler[18]  ; program_counter:pc_inst|prescaler[19]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.425      ;
+; 1.172 ; program_counter:pc_inst|prescaler[6]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.428      ;
+; 1.173 ; program_counter:pc_inst|prescaler[8]   ; program_counter:pc_inst|prescaler[10]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.429      ;
+; 1.173 ; program_counter:pc_inst|prescaler[18]  ; program_counter:pc_inst|prescaler[20]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.429      ;
+; 1.208 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.494      ; 1.888      ;
+; 1.221 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.070      ; 1.477      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+------------------------------------------------
+; Slow 1200mV 100C Model Metastability Summary ;
+------------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV -40C Model Fmax Summary              ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 217.53 MHz ; 217.53 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------------+
+; Slow 1200mV -40C Model Setup Summary ;
++-------+--------+---------------------+
+; Clock ; Slack  ; End Point TNS       ;
++-------+--------+---------------------+
+; clk   ; -3.597 ; -94.340             ;
++-------+--------+---------------------+
+
+
++-------------------------------------+
+; Slow 1200mV -40C Model Hold Summary ;
++-------+-------+---------------------+
+; Clock ; Slack ; End Point TNS       ;
++-------+-------+---------------------+
+; clk   ; 0.344 ; 0.000               ;
++-------+-------+---------------------+
+
+
+-------------------------------------------
+; Slow 1200mV -40C Model Recovery Summary ;
+-------------------------------------------
+No paths to report.
+
+
+------------------------------------------
+; Slow 1200mV -40C Model Removal Summary ;
+------------------------------------------
+No paths to report.
+
+
++----------------------------------------------------+
+; Slow 1200mV -40C Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------------------+
+; Clock ; Slack  ; End Point TNS                     ;
++-------+--------+-----------------------------------+
+; clk   ; -3.000 ; -45.405                           ;
++-------+--------+-----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV -40C Model Setup: 'clk'                                                                                                                          ;
++--------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                             ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; -3.597 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.535      ;
+; -3.569 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.507      ;
+; -3.489 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.427      ;
+; -3.471 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.409      ;
+; -3.461 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.399      ;
+; -3.456 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.394      ;
+; -3.433 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.371      ;
+; -3.428 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.366      ;
+; -3.381 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.319      ;
+; -3.378 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.316      ;
+; -3.376 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.314      ;
+; -3.363 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.301      ;
+; -3.353 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.291      ;
+; -3.348 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.286      ;
+; -3.330 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.268      ;
+; -3.326 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.264      ;
+; -3.325 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.263      ;
+; -3.320 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.258      ;
+; -3.306 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.244      ;
+; -3.292 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.230      ;
+; -3.292 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.230      ;
+; -3.280 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.218      ;
+; -3.273 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.211      ;
+; -3.270 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.208      ;
+; -3.268 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.206      ;
+; -3.264 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.202      ;
+; -3.262 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.200      ;
+; -3.255 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.193      ;
+; -3.245 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.183      ;
+; -3.244 ; program_counter:pc_inst|prescaler[6]  ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.064     ; 4.180      ;
+; -3.243 ; program_counter:pc_inst|prescaler[7]  ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.064     ; 4.179      ;
+; -3.240 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.178      ;
+; -3.235 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.173      ;
+; -3.223 ; program_counter:pc_inst|prescaler[15] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.161      ;
+; -3.222 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.160      ;
+; -3.218 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.156      ;
+; -3.217 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.155      ;
+; -3.212 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.150      ;
+; -3.199 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.303      ; 4.502      ;
+; -3.198 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.136      ;
+; -3.186 ; program_counter:pc_inst|prescaler[24] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.442     ; 3.744      ;
+; -3.185 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.123      ;
+; -3.184 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.122      ;
+; -3.184 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.122      ;
+; -3.172 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.110      ;
+; -3.171 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.303      ; 4.474      ;
+; -3.165 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.103      ;
+; -3.165 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[15] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.103      ;
+; -3.162 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.100      ;
+; -3.160 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.098      ;
+; -3.158 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.096      ;
+; -3.156 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.094      ;
+; -3.154 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.092      ;
+; -3.147 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.085      ;
+; -3.139 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.077      ;
+; -3.137 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[15] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.075      ;
+; -3.136 ; program_counter:pc_inst|prescaler[6]  ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.064     ; 4.072      ;
+; -3.135 ; program_counter:pc_inst|prescaler[7]  ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.064     ; 4.071      ;
+; -3.132 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[16] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.070      ;
+; -3.129 ; program_counter:pc_inst|prescaler[11] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.064     ; 4.065      ;
+; -3.127 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.065      ;
+; -3.123 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.061      ;
+; -3.115 ; program_counter:pc_inst|prescaler[15] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.053      ;
+; -3.114 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.052      ;
+; -3.110 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.048      ;
+; -3.109 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.047      ;
+; -3.106 ; program_counter:pc_inst|prescaler[24] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.442     ; 3.664      ;
+; -3.104 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[16] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.042      ;
+; -3.103 ; program_counter:pc_inst|prescaler[6]  ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.064     ; 4.039      ;
+; -3.102 ; program_counter:pc_inst|prescaler[7]  ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.064     ; 4.038      ;
+; -3.095 ; program_counter:pc_inst|prescaler[9]  ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.064     ; 4.031      ;
+; -3.090 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.028      ;
+; -3.082 ; program_counter:pc_inst|prescaler[15] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.020      ;
+; -3.078 ; program_counter:pc_inst|prescaler[24] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.442     ; 3.636      ;
+; -3.077 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.015      ;
+; -3.076 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.014      ;
+; -3.076 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.014      ;
+; -3.073 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.303      ; 4.376      ;
+; -3.064 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 4.002      ;
+; -3.057 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.995      ;
+; -3.057 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[13] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.995      ;
+; -3.054 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.992      ;
+; -3.052 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.990      ;
+; -3.050 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.988      ;
+; -3.048 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.986      ;
+; -3.046 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.984      ;
+; -3.039 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[15] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.977      ;
+; -3.035 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.303      ; 4.338      ;
+; -3.031 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.969      ;
+; -3.029 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[13] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.967      ;
+; -3.028 ; program_counter:pc_inst|prescaler[6]  ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.064     ; 3.964      ;
+; -3.027 ; program_counter:pc_inst|prescaler[7]  ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.064     ; 3.963      ;
+; -3.024 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[14] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.962      ;
+; -3.021 ; program_counter:pc_inst|prescaler[11] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.064     ; 3.957      ;
+; -3.019 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.957      ;
+; -3.015 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.953      ;
+; -3.007 ; program_counter:pc_inst|prescaler[15] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.945      ;
+; -3.006 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[16] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.944      ;
+; -3.005 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.303      ; 4.308      ;
+; -3.002 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.062     ; 3.940      ;
++--------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV -40C Model Hold: 'clk'                                                                                                                            ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.344 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.062      ; 0.574      ;
+; 0.344 ; program_counter:pc_inst|counter_reg[7] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.062      ; 0.574      ;
+; 0.344 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 0.000        ; 0.062      ; 0.574      ;
+; 0.344 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.062      ; 0.574      ;
+; 0.344 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.062      ; 0.574      ;
+; 0.344 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.062      ; 0.574      ;
+; 0.344 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.062      ; 0.574      ;
+; 0.389 ; program_counter:pc_inst|prescaler[24]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.077      ; 0.634      ;
+; 0.509 ; program_counter:pc_inst|prescaler[22]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.442      ; 1.119      ;
+; 0.577 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[3]   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.807      ;
+; 0.577 ; program_counter:pc_inst|prescaler[5]   ; program_counter:pc_inst|prescaler[5]   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.807      ;
+; 0.578 ; program_counter:pc_inst|prescaler[9]   ; program_counter:pc_inst|prescaler[9]   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.808      ;
+; 0.578 ; program_counter:pc_inst|prescaler[11]  ; program_counter:pc_inst|prescaler[11]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.808      ;
+; 0.579 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[4]   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.809      ;
+; 0.580 ; program_counter:pc_inst|prescaler[7]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.810      ;
+; 0.585 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[19]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.815      ;
+; 0.586 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.816      ;
+; 0.588 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[20]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.818      ;
+; 0.589 ; program_counter:pc_inst|prescaler[0]   ; program_counter:pc_inst|prescaler[0]   ; clk          ; clk         ; 0.000        ; 0.078      ; 0.835      ;
+; 0.595 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[13]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.825      ;
+; 0.596 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[12]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.826      ;
+; 0.597 ; program_counter:pc_inst|prescaler[21]  ; program_counter:pc_inst|prescaler[21]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.827      ;
+; 0.597 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[14]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.827      ;
+; 0.599 ; program_counter:pc_inst|prescaler[21]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.442      ; 1.209      ;
+; 0.599 ; program_counter:pc_inst|prescaler[22]  ; program_counter:pc_inst|prescaler[22]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.829      ;
+; 0.602 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.442      ; 1.212      ;
+; 0.691 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.442      ; 1.301      ;
+; 0.735 ; program_counter:pc_inst|prescaler[2]   ; program_counter:pc_inst|prescaler[2]   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.965      ;
+; 0.743 ; program_counter:pc_inst|prescaler[10]  ; program_counter:pc_inst|prescaler[10]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.973      ;
+; 0.754 ; program_counter:pc_inst|prescaler[8]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.984      ;
+; 0.754 ; program_counter:pc_inst|prescaler[6]   ; program_counter:pc_inst|prescaler[6]   ; clk          ; clk         ; 0.000        ; 0.062      ; 0.984      ;
+; 0.755 ; program_counter:pc_inst|prescaler[18]  ; program_counter:pc_inst|prescaler[18]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.985      ;
+; 0.757 ; program_counter:pc_inst|prescaler[15]  ; program_counter:pc_inst|prescaler[15]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.987      ;
+; 0.757 ; program_counter:pc_inst|prescaler[17]  ; program_counter:pc_inst|prescaler[17]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.987      ;
+; 0.808 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.442      ; 1.418      ;
+; 0.839 ; program_counter:pc_inst|prescaler[23]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.442      ; 1.449      ;
+; 0.855 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[4]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.085      ;
+; 0.855 ; program_counter:pc_inst|prescaler[9]   ; program_counter:pc_inst|prescaler[10]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.085      ;
+; 0.855 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[5]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.085      ;
+; 0.855 ; program_counter:pc_inst|prescaler[5]   ; program_counter:pc_inst|prescaler[6]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.085      ;
+; 0.857 ; program_counter:pc_inst|prescaler[11]  ; program_counter:pc_inst|prescaler[12]  ; clk          ; clk         ; 0.000        ; 0.060      ; 1.085      ;
+; 0.857 ; program_counter:pc_inst|prescaler[7]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.087      ;
+; 0.862 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[17]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.092      ;
+; 0.863 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[20]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.093      ;
+; 0.864 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[21]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.094      ;
+; 0.869 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[6]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.099      ;
+; 0.872 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[13]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.102      ;
+; 0.873 ; program_counter:pc_inst|prescaler[18]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.442      ; 1.483      ;
+; 0.873 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[14]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.103      ;
+; 0.873 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[15]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.103      ;
+; 0.875 ; program_counter:pc_inst|prescaler[21]  ; program_counter:pc_inst|prescaler[22]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.105      ;
+; 0.875 ; program_counter:pc_inst|prescaler[22]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.105      ;
+; 0.876 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[18]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.106      ;
+; 0.878 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[22]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.108      ;
+; 0.886 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[14]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.116      ;
+; 0.887 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.117      ;
+; 0.905 ; program_counter:pc_inst|prescaler[1]   ; program_counter:pc_inst|prescaler[1]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.135      ;
+; 0.907 ; program_counter:pc_inst|prescaler[23]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.137      ;
+; 0.923 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.442      ; 1.533      ;
+; 0.931 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 0.000        ; 0.062      ; 1.161      ;
+; 0.945 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[5]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.175      ;
+; 0.945 ; program_counter:pc_inst|prescaler[5]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.175      ;
+; 0.945 ; program_counter:pc_inst|prescaler[9]   ; program_counter:pc_inst|prescaler[11]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.175      ;
+; 0.947 ; program_counter:pc_inst|prescaler[11]  ; program_counter:pc_inst|prescaler[13]  ; clk          ; clk         ; 0.000        ; 0.060      ; 1.175      ;
+; 0.947 ; program_counter:pc_inst|prescaler[7]   ; program_counter:pc_inst|prescaler[9]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.177      ;
+; 0.953 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[21]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.183      ;
+; 0.959 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.189      ;
+; 0.959 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[6]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.189      ;
+; 0.959 ; program_counter:pc_inst|prescaler[5]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.189      ;
+; 0.961 ; program_counter:pc_inst|prescaler[11]  ; program_counter:pc_inst|prescaler[14]  ; clk          ; clk         ; 0.000        ; 0.060      ; 1.189      ;
+; 0.961 ; program_counter:pc_inst|prescaler[9]   ; program_counter:pc_inst|prescaler[12]  ; clk          ; clk         ; 0.000        ; 0.060      ; 1.189      ;
+; 0.961 ; program_counter:pc_inst|prescaler[7]   ; program_counter:pc_inst|prescaler[10]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.191      ;
+; 0.963 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[15]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.193      ;
+; 0.965 ; program_counter:pc_inst|prescaler[21]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.195      ;
+; 0.966 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[19]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.196      ;
+; 0.967 ; program_counter:pc_inst|prescaler[17]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.442      ; 1.577      ;
+; 0.967 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[22]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.197      ;
+; 0.968 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.198      ;
+; 0.970 ; program_counter:pc_inst|prescaler[24]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; -0.303     ; 0.835      ;
+; 0.973 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.203      ;
+; 0.976 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[15]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.206      ;
+; 0.977 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.207      ;
+; 0.977 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[17]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.207      ;
+; 0.980 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[20]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.210      ;
+; 0.982 ; program_counter:pc_inst|prescaler[2]   ; program_counter:pc_inst|prescaler[3]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.212      ;
+; 0.990 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.220      ;
+; 0.991 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[18]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.221      ;
+; 1.002 ; program_counter:pc_inst|prescaler[18]  ; program_counter:pc_inst|prescaler[19]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.232      ;
+; 1.003 ; program_counter:pc_inst|prescaler[10]  ; program_counter:pc_inst|prescaler[11]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.233      ;
+; 1.010 ; program_counter:pc_inst|prescaler[6]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.240      ;
+; 1.010 ; program_counter:pc_inst|prescaler[8]   ; program_counter:pc_inst|prescaler[9]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.240      ;
+; 1.013 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.442      ; 1.623      ;
+; 1.025 ; program_counter:pc_inst|prescaler[2]   ; program_counter:pc_inst|prescaler[4]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.255      ;
+; 1.026 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.442      ; 1.636      ;
+; 1.032 ; program_counter:pc_inst|prescaler[10]  ; program_counter:pc_inst|prescaler[12]  ; clk          ; clk         ; 0.000        ; 0.060      ; 1.260      ;
+; 1.035 ; program_counter:pc_inst|prescaler[17]  ; program_counter:pc_inst|prescaler[18]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.265      ;
+; 1.035 ; program_counter:pc_inst|prescaler[15]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.265      ;
+; 1.041 ; program_counter:pc_inst|prescaler[6]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.062      ; 1.271      ;
+; 1.041 ; program_counter:pc_inst|prescaler[8]   ; program_counter:pc_inst|prescaler[10]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.271      ;
+; 1.045 ; program_counter:pc_inst|prescaler[18]  ; program_counter:pc_inst|prescaler[20]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.275      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+------------------------------------------------
+; Slow 1200mV -40C Model Metastability Summary ;
+------------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------+
+; Fast 1200mV -40C Model Setup Summary ;
++-------+--------+---------------------+
+; Clock ; Slack  ; End Point TNS       ;
++-------+--------+---------------------+
+; clk   ; -1.422 ; -33.322             ;
++-------+--------+---------------------+
+
+
++-------------------------------------+
+; Fast 1200mV -40C Model Hold Summary ;
++-------+-------+---------------------+
+; Clock ; Slack ; End Point TNS       ;
++-------+-------+---------------------+
+; clk   ; 0.179 ; 0.000               ;
++-------+-------+---------------------+
+
+
+-------------------------------------------
+; Fast 1200mV -40C Model Recovery Summary ;
+-------------------------------------------
+No paths to report.
+
+
+------------------------------------------
+; Fast 1200mV -40C Model Removal Summary ;
+------------------------------------------
+No paths to report.
+
+
++----------------------------------------------------+
+; Fast 1200mV -40C Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------------------+
+; Clock ; Slack  ; End Point TNS                     ;
++-------+--------+-----------------------------------+
+; clk   ; -3.000 ; -46.534                           ;
++-------+--------+-----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV -40C Model Setup: 'clk'                                                                                                                          ;
++--------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                             ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; -1.422 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.376      ;
+; -1.418 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.372      ;
+; -1.412 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.366      ;
+; -1.408 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.362      ;
+; -1.361 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.315      ;
+; -1.360 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.314      ;
+; -1.358 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.312      ;
+; -1.357 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.311      ;
+; -1.356 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.310      ;
+; -1.354 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.308      ;
+; -1.348 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.302      ;
+; -1.344 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.298      ;
+; -1.332 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.286      ;
+; -1.328 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.282      ;
+; -1.314 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.268      ;
+; -1.310 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.264      ;
+; -1.300 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.148      ; 2.436      ;
+; -1.297 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.251      ;
+; -1.296 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.250      ;
+; -1.294 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.248      ;
+; -1.293 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.247      ;
+; -1.292 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.246      ;
+; -1.290 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.148      ; 2.426      ;
+; -1.290 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.244      ;
+; -1.287 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.241      ;
+; -1.284 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.238      ;
+; -1.283 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.237      ;
+; -1.280 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.234      ;
+; -1.280 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.234      ;
+; -1.280 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.234      ;
+; -1.276 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.230      ;
+; -1.276 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.230      ;
+; -1.273 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.227      ;
+; -1.269 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.223      ;
+; -1.268 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.222      ;
+; -1.264 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.218      ;
+; -1.258 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.212      ;
+; -1.254 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.208      ;
+; -1.250 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.204      ;
+; -1.246 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.200      ;
+; -1.245 ; program_counter:pc_inst|prescaler[6]  ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.035     ; 2.198      ;
+; -1.241 ; program_counter:pc_inst|prescaler[6]  ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.035     ; 2.194      ;
+; -1.239 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.148      ; 2.375      ;
+; -1.238 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.148      ; 2.374      ;
+; -1.238 ; program_counter:pc_inst|prescaler[7]  ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.035     ; 2.191      ;
+; -1.234 ; program_counter:pc_inst|prescaler[7]  ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.035     ; 2.187      ;
+; -1.233 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.187      ;
+; -1.232 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.186      ;
+; -1.230 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.184      ;
+; -1.229 ; program_counter:pc_inst|prescaler[15] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.183      ;
+; -1.229 ; program_counter:pc_inst|prescaler[24] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.224     ; 1.993      ;
+; -1.229 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.183      ;
+; -1.228 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.182      ;
+; -1.226 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[16] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.180      ;
+; -1.225 ; program_counter:pc_inst|prescaler[15] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.179      ;
+; -1.225 ; program_counter:pc_inst|prescaler[24] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.224     ; 1.989      ;
+; -1.223 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.177      ;
+; -1.220 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.174      ;
+; -1.219 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.173      ;
+; -1.216 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.170      ;
+; -1.216 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.170      ;
+; -1.216 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[16] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.170      ;
+; -1.212 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.166      ;
+; -1.212 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.166      ;
+; -1.210 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.148      ; 2.346      ;
+; -1.209 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.163      ;
+; -1.205 ; program_counter:pc_inst|prescaler[21] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.159      ;
+; -1.204 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.158      ;
+; -1.200 ; program_counter:pc_inst|prescaler[13] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.154      ;
+; -1.194 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.148      ;
+; -1.192 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.148      ; 2.328      ;
+; -1.190 ; program_counter:pc_inst|prescaler[12] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.144      ;
+; -1.186 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.140      ;
+; -1.182 ; program_counter:pc_inst|prescaler[11] ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.035     ; 2.135      ;
+; -1.182 ; program_counter:pc_inst|prescaler[18] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.136      ;
+; -1.181 ; program_counter:pc_inst|prescaler[6]  ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.035     ; 2.134      ;
+; -1.178 ; program_counter:pc_inst|prescaler[11] ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.035     ; 2.131      ;
+; -1.177 ; program_counter:pc_inst|prescaler[6]  ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.035     ; 2.130      ;
+; -1.174 ; program_counter:pc_inst|prescaler[7]  ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.035     ; 2.127      ;
+; -1.170 ; program_counter:pc_inst|prescaler[7]  ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.035     ; 2.123      ;
+; -1.169 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.123      ;
+; -1.168 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[17] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.122      ;
+; -1.166 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[15] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.120      ;
+; -1.165 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.148      ; 2.301      ;
+; -1.165 ; program_counter:pc_inst|prescaler[15] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.119      ;
+; -1.165 ; program_counter:pc_inst|prescaler[24] ; program_counter:pc_inst|prescaler[21] ; clk          ; clk         ; 1.000        ; -0.224     ; 1.929      ;
+; -1.165 ; program_counter:pc_inst|prescaler[22] ; program_counter:pc_inst|prescaler[16] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.119      ;
+; -1.164 ; program_counter:pc_inst|prescaler[19] ; program_counter:pc_inst|prescaler[16] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.118      ;
+; -1.162 ; program_counter:pc_inst|prescaler[17] ; program_counter:pc_inst|prescaler[14] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.116      ;
+; -1.161 ; program_counter:pc_inst|prescaler[15] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.115      ;
+; -1.161 ; program_counter:pc_inst|prescaler[24] ; program_counter:pc_inst|prescaler[20] ; clk          ; clk         ; 1.000        ; -0.224     ; 1.925      ;
+; -1.159 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.113      ;
+; -1.158 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.148      ; 2.294      ;
+; -1.158 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[24] ; clk          ; clk         ; 1.000        ; 0.148      ; 2.294      ;
+; -1.158 ; program_counter:pc_inst|prescaler[9]  ; program_counter:pc_inst|prescaler[23] ; clk          ; clk         ; 1.000        ; -0.035     ; 2.111      ;
+; -1.156 ; program_counter:pc_inst|prescaler[16] ; program_counter:pc_inst|prescaler[15] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.110      ;
+; -1.155 ; program_counter:pc_inst|prescaler[20] ; program_counter:pc_inst|prescaler[18] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.109      ;
+; -1.154 ; program_counter:pc_inst|prescaler[9]  ; program_counter:pc_inst|prescaler[22] ; clk          ; clk         ; 1.000        ; -0.035     ; 2.107      ;
+; -1.152 ; program_counter:pc_inst|prescaler[14] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.106      ;
+; -1.152 ; program_counter:pc_inst|prescaler[23] ; program_counter:pc_inst|prescaler[19] ; clk          ; clk         ; 1.000        ; -0.034     ; 2.106      ;
++--------+---------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV -40C Model Hold: 'clk'                                                                                                                            ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.179 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.035      ; 0.296      ;
+; 0.179 ; program_counter:pc_inst|counter_reg[7] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.035      ; 0.296      ;
+; 0.179 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 0.000        ; 0.035      ; 0.296      ;
+; 0.179 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.035      ; 0.296      ;
+; 0.179 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.035      ; 0.296      ;
+; 0.179 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.035      ; 0.296      ;
+; 0.179 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.035      ; 0.296      ;
+; 0.192 ; program_counter:pc_inst|prescaler[24]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.316      ;
+; 0.255 ; program_counter:pc_inst|prescaler[22]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.224      ; 0.561      ;
+; 0.277 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[3]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.393      ;
+; 0.277 ; program_counter:pc_inst|prescaler[5]   ; program_counter:pc_inst|prescaler[5]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.393      ;
+; 0.278 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[4]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.394      ;
+; 0.280 ; program_counter:pc_inst|prescaler[9]   ; program_counter:pc_inst|prescaler[9]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.396      ;
+; 0.280 ; program_counter:pc_inst|prescaler[11]  ; program_counter:pc_inst|prescaler[11]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.396      ;
+; 0.281 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[19]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.397      ;
+; 0.282 ; program_counter:pc_inst|prescaler[7]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.398      ;
+; 0.283 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[20]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.399      ;
+; 0.283 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.399      ;
+; 0.288 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[13]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.404      ;
+; 0.288 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[12]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.404      ;
+; 0.289 ; program_counter:pc_inst|prescaler[21]  ; program_counter:pc_inst|prescaler[21]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.405      ;
+; 0.289 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[14]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.405      ;
+; 0.289 ; program_counter:pc_inst|prescaler[0]   ; program_counter:pc_inst|prescaler[0]   ; clk          ; clk         ; 0.000        ; 0.042      ; 0.413      ;
+; 0.290 ; program_counter:pc_inst|prescaler[22]  ; program_counter:pc_inst|prescaler[22]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.406      ;
+; 0.303 ; program_counter:pc_inst|prescaler[21]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.224      ; 0.609      ;
+; 0.308 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.224      ; 0.614      ;
+; 0.342 ; program_counter:pc_inst|prescaler[2]   ; program_counter:pc_inst|prescaler[2]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.458      ;
+; 0.348 ; program_counter:pc_inst|prescaler[10]  ; program_counter:pc_inst|prescaler[10]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.464      ;
+; 0.354 ; program_counter:pc_inst|prescaler[18]  ; program_counter:pc_inst|prescaler[18]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.470      ;
+; 0.355 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.224      ; 0.661      ;
+; 0.355 ; program_counter:pc_inst|prescaler[8]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.471      ;
+; 0.355 ; program_counter:pc_inst|prescaler[15]  ; program_counter:pc_inst|prescaler[15]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.471      ;
+; 0.355 ; program_counter:pc_inst|prescaler[17]  ; program_counter:pc_inst|prescaler[17]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.471      ;
+; 0.355 ; program_counter:pc_inst|prescaler[6]   ; program_counter:pc_inst|prescaler[6]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.471      ;
+; 0.396 ; program_counter:pc_inst|prescaler[23]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.224      ; 0.702      ;
+; 0.421 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[4]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.537      ;
+; 0.421 ; program_counter:pc_inst|prescaler[5]   ; program_counter:pc_inst|prescaler[6]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.537      ;
+; 0.424 ; program_counter:pc_inst|prescaler[9]   ; program_counter:pc_inst|prescaler[10]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.540      ;
+; 0.425 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[20]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.541      ;
+; 0.425 ; program_counter:pc_inst|prescaler[11]  ; program_counter:pc_inst|prescaler[12]  ; clk          ; clk         ; 0.000        ; 0.033      ; 0.540      ;
+; 0.426 ; program_counter:pc_inst|prescaler[7]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.542      ;
+; 0.428 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.224      ; 0.734      ;
+; 0.429 ; program_counter:pc_inst|prescaler[1]   ; program_counter:pc_inst|prescaler[1]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.545      ;
+; 0.431 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[5]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.547      ;
+; 0.432 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[14]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.548      ;
+; 0.433 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[6]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.549      ;
+; 0.433 ; program_counter:pc_inst|prescaler[21]  ; program_counter:pc_inst|prescaler[22]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.549      ;
+; 0.436 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[21]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.552      ;
+; 0.436 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[17]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.552      ;
+; 0.438 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[22]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.554      ;
+; 0.438 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[18]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.554      ;
+; 0.439 ; program_counter:pc_inst|prescaler[18]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.224      ; 0.745      ;
+; 0.441 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[13]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.557      ;
+; 0.442 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[15]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.558      ;
+; 0.443 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[14]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.559      ;
+; 0.443 ; program_counter:pc_inst|prescaler[22]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.559      ;
+; 0.444 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.560      ;
+; 0.449 ; program_counter:pc_inst|prescaler[23]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.565      ;
+; 0.458 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.574      ;
+; 0.476 ; program_counter:pc_inst|prescaler[24]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; -0.148     ; 0.410      ;
+; 0.479 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[5]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.595      ;
+; 0.479 ; program_counter:pc_inst|prescaler[5]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.595      ;
+; 0.481 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[6]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.597      ;
+; 0.481 ; program_counter:pc_inst|prescaler[5]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.597      ;
+; 0.482 ; program_counter:pc_inst|prescaler[9]   ; program_counter:pc_inst|prescaler[11]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.598      ;
+; 0.483 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[21]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.599      ;
+; 0.483 ; program_counter:pc_inst|prescaler[11]  ; program_counter:pc_inst|prescaler[13]  ; clk          ; clk         ; 0.000        ; 0.033      ; 0.598      ;
+; 0.484 ; program_counter:pc_inst|prescaler[7]   ; program_counter:pc_inst|prescaler[9]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.600      ;
+; 0.485 ; program_counter:pc_inst|prescaler[11]  ; program_counter:pc_inst|prescaler[14]  ; clk          ; clk         ; 0.000        ; 0.033      ; 0.600      ;
+; 0.485 ; program_counter:pc_inst|prescaler[19]  ; program_counter:pc_inst|prescaler[22]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.601      ;
+; 0.485 ; program_counter:pc_inst|prescaler[9]   ; program_counter:pc_inst|prescaler[12]  ; clk          ; clk         ; 0.000        ; 0.033      ; 0.600      ;
+; 0.486 ; program_counter:pc_inst|prescaler[7]   ; program_counter:pc_inst|prescaler[10]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.602      ;
+; 0.489 ; program_counter:pc_inst|prescaler[17]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.224      ; 0.795      ;
+; 0.490 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[15]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.606      ;
+; 0.491 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.607      ;
+; 0.491 ; program_counter:pc_inst|prescaler[21]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.607      ;
+; 0.492 ; program_counter:pc_inst|prescaler[13]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.608      ;
+; 0.493 ; program_counter:pc_inst|prescaler[4]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.609      ;
+; 0.494 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[24]  ; clk          ; clk         ; 0.000        ; 0.224      ; 0.800      ;
+; 0.495 ; program_counter:pc_inst|prescaler[2]   ; program_counter:pc_inst|prescaler[3]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.611      ;
+; 0.496 ; program_counter:pc_inst|prescaler[20]  ; program_counter:pc_inst|prescaler[23]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.612      ;
+; 0.496 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[19]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.612      ;
+; 0.497 ; program_counter:pc_inst|prescaler[2]   ; program_counter:pc_inst|prescaler[4]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.613      ;
+; 0.498 ; program_counter:pc_inst|prescaler[16]  ; program_counter:pc_inst|prescaler[20]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.614      ;
+; 0.499 ; program_counter:pc_inst|prescaler[17]  ; program_counter:pc_inst|prescaler[18]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.615      ;
+; 0.499 ; program_counter:pc_inst|prescaler[15]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.615      ;
+; 0.500 ; program_counter:pc_inst|prescaler[10]  ; program_counter:pc_inst|prescaler[11]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.616      ;
+; 0.501 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[15]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.617      ;
+; 0.502 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[17]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.618      ;
+; 0.503 ; program_counter:pc_inst|prescaler[12]  ; program_counter:pc_inst|prescaler[16]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.619      ;
+; 0.503 ; program_counter:pc_inst|prescaler[10]  ; program_counter:pc_inst|prescaler[12]  ; clk          ; clk         ; 0.000        ; 0.033      ; 0.618      ;
+; 0.504 ; program_counter:pc_inst|prescaler[14]  ; program_counter:pc_inst|prescaler[18]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.620      ;
+; 0.507 ; program_counter:pc_inst|prescaler[6]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.623      ;
+; 0.507 ; program_counter:pc_inst|prescaler[8]   ; program_counter:pc_inst|prescaler[9]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.623      ;
+; 0.507 ; program_counter:pc_inst|prescaler[18]  ; program_counter:pc_inst|prescaler[19]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.623      ;
+; 0.509 ; program_counter:pc_inst|prescaler[6]   ; program_counter:pc_inst|prescaler[8]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.625      ;
+; 0.509 ; program_counter:pc_inst|prescaler[8]   ; program_counter:pc_inst|prescaler[10]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.625      ;
+; 0.509 ; program_counter:pc_inst|prescaler[18]  ; program_counter:pc_inst|prescaler[20]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.625      ;
+; 0.539 ; program_counter:pc_inst|prescaler[3]   ; program_counter:pc_inst|prescaler[7]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.655      ;
+; 0.539 ; program_counter:pc_inst|prescaler[5]   ; program_counter:pc_inst|prescaler[9]   ; clk          ; clk         ; 0.000        ; 0.034      ; 0.655      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+------------------------------------------------
+; Fast 1200mV -40C Model Metastability Summary ;
+------------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -4.337   ; 0.179 ; N/A      ; N/A     ; -3.000              ;
+;  clk             ; -4.337   ; 0.179 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -112.755 ; 0.0   ; 0.0      ; 0.0     ; -46.534             ;
+;  clk             ; -112.755 ; 0.000 ; N/A      ; N/A     ; -46.534             ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; bit_bus[0]    ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; bit_bus[1]    ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; bit_bus[2]    ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; bit_bus[3]    ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; bit_bus[4]    ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; bit_bus[5]    ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; bit_bus[6]    ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; bit_bus[7]    ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; Counter_Out             ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; Computer_Reset          ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; bit_bus[0]              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; bit_bus[1]              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; bit_bus[2]              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; bit_bus[3]              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; bit_bus[4]              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; bit_bus[5]              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; bit_bus[6]              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; bit_bus[7]              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; Counter_Clear           ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; Counter_In              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; clk                     ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_DATA0~          ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv n40c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; bit_bus[0]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 4.49e-09 V                   ; 3.13 V              ; -0.0913 V           ; 0.283 V                              ; 0.166 V                              ; 7.04e-10 s                  ; 6.18e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 4.49e-09 V                  ; 3.13 V             ; -0.0913 V          ; 0.283 V                             ; 0.166 V                             ; 7.04e-10 s                 ; 6.18e-10 s                 ; Yes                       ; No                        ;
+; bit_bus[1]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 4.49e-09 V                   ; 3.13 V              ; -0.0913 V           ; 0.283 V                              ; 0.166 V                              ; 7.04e-10 s                  ; 6.18e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 4.49e-09 V                  ; 3.13 V             ; -0.0913 V          ; 0.283 V                             ; 0.166 V                             ; 7.04e-10 s                 ; 6.18e-10 s                 ; Yes                       ; No                        ;
+; bit_bus[2]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 4.49e-09 V                   ; 3.13 V              ; -0.0913 V           ; 0.283 V                              ; 0.166 V                              ; 7.04e-10 s                  ; 6.18e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 4.49e-09 V                  ; 3.13 V             ; -0.0913 V          ; 0.283 V                             ; 0.166 V                             ; 7.04e-10 s                 ; 6.18e-10 s                 ; Yes                       ; No                        ;
+; bit_bus[3]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 4.49e-09 V                   ; 3.13 V              ; -0.0913 V           ; 0.283 V                              ; 0.166 V                              ; 7.04e-10 s                  ; 6.18e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 4.49e-09 V                  ; 3.13 V             ; -0.0913 V          ; 0.283 V                             ; 0.166 V                             ; 7.04e-10 s                 ; 6.18e-10 s                 ; Yes                       ; No                        ;
+; bit_bus[4]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 4.49e-09 V                   ; 3.13 V              ; -0.0913 V           ; 0.283 V                              ; 0.166 V                              ; 7.04e-10 s                  ; 6.18e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 4.49e-09 V                  ; 3.13 V             ; -0.0913 V          ; 0.283 V                             ; 0.166 V                             ; 7.04e-10 s                 ; 6.18e-10 s                 ; Yes                       ; No                        ;
+; bit_bus[5]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 4.49e-09 V                   ; 3.13 V              ; -0.0913 V           ; 0.283 V                              ; 0.166 V                              ; 7.04e-10 s                  ; 6.18e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 4.49e-09 V                  ; 3.13 V             ; -0.0913 V          ; 0.283 V                             ; 0.166 V                             ; 7.04e-10 s                 ; 6.18e-10 s                 ; Yes                       ; No                        ;
+; bit_bus[6]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 4.49e-09 V                   ; 3.13 V              ; -0.0913 V           ; 0.283 V                              ; 0.166 V                              ; 7.04e-10 s                  ; 6.18e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 4.49e-09 V                  ; 3.13 V             ; -0.0913 V          ; 0.283 V                             ; 0.166 V                             ; 7.04e-10 s                 ; 6.18e-10 s                 ; Yes                       ; No                        ;
+; bit_bus[7]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 4.49e-09 V                   ; 3.13 V              ; -0.0913 V           ; 0.283 V                              ; 0.166 V                              ; 7.04e-10 s                  ; 6.18e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 4.49e-09 V                  ; 3.13 V             ; -0.0913 V          ; 0.283 V                             ; 0.166 V                             ; 7.04e-10 s                 ; 6.18e-10 s                 ; Yes                       ; No                        ;
+; ~ALTERA_DCLK~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.49e-09 V                   ; 3.24 V              ; -0.21 V             ; 0.177 V                              ; 0.263 V                              ; 2.71e-10 s                  ; 2.23e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 2.49e-09 V                  ; 3.24 V             ; -0.21 V            ; 0.177 V                             ; 0.263 V                             ; 2.71e-10 s                 ; 2.23e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 4.49e-09 V                   ; 3.13 V              ; -0.0913 V           ; 0.283 V                              ; 0.166 V                              ; 7.04e-10 s                  ; 6.18e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 4.49e-09 V                  ; 3.13 V             ; -0.0913 V          ; 0.283 V                             ; 0.166 V                             ; 7.04e-10 s                 ; 6.18e-10 s                 ; Yes                       ; No                        ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 100c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; bit_bus[0]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.58e-06 V                   ; 3.11 V              ; -0.0481 V           ; 0.185 V                              ; 0.219 V                              ; 1.06e-09 s                  ; 8.59e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.58e-06 V                  ; 3.11 V             ; -0.0481 V          ; 0.185 V                             ; 0.219 V                             ; 1.06e-09 s                 ; 8.59e-10 s                 ; No                        ; No                        ;
+; bit_bus[1]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.58e-06 V                   ; 3.11 V              ; -0.0481 V           ; 0.185 V                              ; 0.219 V                              ; 1.06e-09 s                  ; 8.59e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.58e-06 V                  ; 3.11 V             ; -0.0481 V          ; 0.185 V                             ; 0.219 V                             ; 1.06e-09 s                 ; 8.59e-10 s                 ; No                        ; No                        ;
+; bit_bus[2]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.58e-06 V                   ; 3.11 V              ; -0.0481 V           ; 0.185 V                              ; 0.219 V                              ; 1.06e-09 s                  ; 8.59e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.58e-06 V                  ; 3.11 V             ; -0.0481 V          ; 0.185 V                             ; 0.219 V                             ; 1.06e-09 s                 ; 8.59e-10 s                 ; No                        ; No                        ;
+; bit_bus[3]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.58e-06 V                   ; 3.11 V              ; -0.0481 V           ; 0.185 V                              ; 0.219 V                              ; 1.06e-09 s                  ; 8.59e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.58e-06 V                  ; 3.11 V             ; -0.0481 V          ; 0.185 V                             ; 0.219 V                             ; 1.06e-09 s                 ; 8.59e-10 s                 ; No                        ; No                        ;
+; bit_bus[4]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.58e-06 V                   ; 3.11 V              ; -0.0481 V           ; 0.185 V                              ; 0.219 V                              ; 1.06e-09 s                  ; 8.59e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.58e-06 V                  ; 3.11 V             ; -0.0481 V          ; 0.185 V                             ; 0.219 V                             ; 1.06e-09 s                 ; 8.59e-10 s                 ; No                        ; No                        ;
+; bit_bus[5]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.58e-06 V                   ; 3.11 V              ; -0.0481 V           ; 0.185 V                              ; 0.219 V                              ; 1.06e-09 s                  ; 8.59e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.58e-06 V                  ; 3.11 V             ; -0.0481 V          ; 0.185 V                             ; 0.219 V                             ; 1.06e-09 s                 ; 8.59e-10 s                 ; No                        ; No                        ;
+; bit_bus[6]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.58e-06 V                   ; 3.11 V              ; -0.0481 V           ; 0.185 V                              ; 0.219 V                              ; 1.06e-09 s                  ; 8.59e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.58e-06 V                  ; 3.11 V             ; -0.0481 V          ; 0.185 V                             ; 0.219 V                             ; 1.06e-09 s                 ; 8.59e-10 s                 ; No                        ; No                        ;
+; bit_bus[7]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.58e-06 V                   ; 3.11 V              ; -0.0481 V           ; 0.185 V                              ; 0.219 V                              ; 1.06e-09 s                  ; 8.59e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.58e-06 V                  ; 3.11 V             ; -0.0481 V          ; 0.185 V                             ; 0.219 V                             ; 1.06e-09 s                 ; 8.59e-10 s                 ; No                        ; No                        ;
+; ~ALTERA_DCLK~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.32e-06 V                   ; 3.13 V              ; -0.108 V            ; 0.148 V                              ; 0.141 V                              ; 3.14e-10 s                  ; 4.03e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 1.32e-06 V                  ; 3.13 V             ; -0.108 V           ; 0.148 V                             ; 0.141 V                             ; 3.14e-10 s                 ; 4.03e-10 s                 ; Yes                       ; No                        ;
+; ~ALTERA_nCEO~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.58e-06 V                   ; 3.11 V              ; -0.0481 V           ; 0.185 V                              ; 0.219 V                              ; 1.06e-09 s                  ; 8.59e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.58e-06 V                  ; 3.11 V             ; -0.0481 V          ; 0.185 V                             ; 0.219 V                             ; 1.06e-09 s                 ; 8.59e-10 s                 ; No                        ; No                        ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv n40c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; bit_bus[0]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.95e-08 V                   ; 3.59 V              ; -0.0938 V           ; 0.27 V                               ; 0.284 V                              ; 6.63e-10 s                  ; 4.61e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.95e-08 V                  ; 3.59 V             ; -0.0938 V          ; 0.27 V                              ; 0.284 V                             ; 6.63e-10 s                 ; 4.61e-10 s                 ; No                        ; Yes                       ;
+; bit_bus[1]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.95e-08 V                   ; 3.59 V              ; -0.0938 V           ; 0.27 V                               ; 0.284 V                              ; 6.63e-10 s                  ; 4.61e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.95e-08 V                  ; 3.59 V             ; -0.0938 V          ; 0.27 V                              ; 0.284 V                             ; 6.63e-10 s                 ; 4.61e-10 s                 ; No                        ; Yes                       ;
+; bit_bus[2]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.95e-08 V                   ; 3.59 V              ; -0.0938 V           ; 0.27 V                               ; 0.284 V                              ; 6.63e-10 s                  ; 4.61e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.95e-08 V                  ; 3.59 V             ; -0.0938 V          ; 0.27 V                              ; 0.284 V                             ; 6.63e-10 s                 ; 4.61e-10 s                 ; No                        ; Yes                       ;
+; bit_bus[3]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.95e-08 V                   ; 3.59 V              ; -0.0938 V           ; 0.27 V                               ; 0.284 V                              ; 6.63e-10 s                  ; 4.61e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.95e-08 V                  ; 3.59 V             ; -0.0938 V          ; 0.27 V                              ; 0.284 V                             ; 6.63e-10 s                 ; 4.61e-10 s                 ; No                        ; Yes                       ;
+; bit_bus[4]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.95e-08 V                   ; 3.59 V              ; -0.0938 V           ; 0.27 V                               ; 0.284 V                              ; 6.63e-10 s                  ; 4.61e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.95e-08 V                  ; 3.59 V             ; -0.0938 V          ; 0.27 V                              ; 0.284 V                             ; 6.63e-10 s                 ; 4.61e-10 s                 ; No                        ; Yes                       ;
+; bit_bus[5]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.95e-08 V                   ; 3.59 V              ; -0.0938 V           ; 0.27 V                               ; 0.284 V                              ; 6.63e-10 s                  ; 4.61e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.95e-08 V                  ; 3.59 V             ; -0.0938 V          ; 0.27 V                              ; 0.284 V                             ; 6.63e-10 s                 ; 4.61e-10 s                 ; No                        ; Yes                       ;
+; bit_bus[6]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.95e-08 V                   ; 3.59 V              ; -0.0938 V           ; 0.27 V                               ; 0.284 V                              ; 6.63e-10 s                  ; 4.61e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.95e-08 V                  ; 3.59 V             ; -0.0938 V          ; 0.27 V                              ; 0.284 V                             ; 6.63e-10 s                 ; 4.61e-10 s                 ; No                        ; Yes                       ;
+; bit_bus[7]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.95e-08 V                   ; 3.59 V              ; -0.0938 V           ; 0.27 V                               ; 0.284 V                              ; 6.63e-10 s                  ; 4.61e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.95e-08 V                  ; 3.59 V             ; -0.0938 V          ; 0.27 V                              ; 0.284 V                             ; 6.63e-10 s                 ; 4.61e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.06e-08 V                   ; 3.75 V              ; -0.275 V            ; 0.43 V                               ; 0.324 V                              ; 1.32e-10 s                  ; 1.98e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.06e-08 V                  ; 3.75 V             ; -0.275 V           ; 0.43 V                              ; 0.324 V                             ; 1.32e-10 s                 ; 1.98e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.95e-08 V                   ; 3.59 V              ; -0.0938 V           ; 0.27 V                               ; 0.284 V                              ; 6.63e-10 s                  ; 4.61e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.95e-08 V                  ; 3.59 V             ; -0.0938 V          ; 0.27 V                              ; 0.284 V                             ; 6.63e-10 s                 ; 4.61e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 7322     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 7322     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 66    ; 66   ;
+; Unconstrained Output Ports      ; 8     ; 8    ;
+; Unconstrained Output Port Paths ; 8     ; 8    ;
++---------------------------------+-------+------+
+
+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; clk    ; clk   ; Base ; Constrained ;
++--------+-------+------+-------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                            ;
++---------------+--------------------------------------------------------------------------------------+
+; Input Port    ; Comment                                                                              ;
++---------------+--------------------------------------------------------------------------------------+
+; Counter_Clear ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Counter_In    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; bit_bus[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                            ;
++---------------+--------------------------------------------------------------------------------------+
+; Input Port    ; Comment                                                                              ;
++---------------+--------------------------------------------------------------------------------------+
+; Counter_Clear ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Counter_In    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; bit_bus[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; bit_bus[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+    Info: Processing started: Tue Mar  3 08:44:46 2026
+Info: Command: quartus_sta computer_fpga -c computer_fpga
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (21077): Low junction temperature is -40 degrees C
+Info (21077): High junction temperature is 100 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'computer_fpga.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 100C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -4.337
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.337            -112.755 clk 
+Info (332146): Worst-case hold slack is 0.418
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.418               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -45.405 clk 
+Info: Analyzing Slow 1200mV -40C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -3.597
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.597             -94.340 clk 
+Info (332146): Worst-case hold slack is 0.344
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.344               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -45.405 clk 
+Info: Analyzing Fast 1200mV -40C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -1.422
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.422             -33.322 clk 
+Info (332146): Worst-case hold slack is 0.179
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.179               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -46.534 clk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4778 megabytes
+    Info: Processing ended: Tue Mar  3 08:44:48 2026
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

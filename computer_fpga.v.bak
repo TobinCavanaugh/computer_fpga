@@ -1,0 +1,10 @@
+module computer_fpga 
+(inout [7:0] bit_bus);
+
+submodule child(
+	.bus(bit_bus)
+);
+
+
+
+endmodule
