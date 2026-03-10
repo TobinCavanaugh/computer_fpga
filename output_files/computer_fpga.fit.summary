@@ -1,15 +1,15 @@
-Fitter Status : Successful - Thu Mar  5 09:10:40 2026
+Fitter Status : Successful - Tue Mar 10 09:01:59 2026
 Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 Revision Name : computer_fpga
 Top-level Entity Name : computer_fpga
 Family : Cyclone 10 LP
 Device : 10CL025YU256I7G
 Timing Models : Final
-Total logic elements : 8 / 24,624 ( < 1 % )
-    Total combinational functions : 8 / 24,624 ( < 1 % )
-    Dedicated logic registers : 8 / 24,624 ( < 1 % )
-Total registers : 8
-Total pins : 29 / 151 ( 19 % )
+Total logic elements : 45 / 24,624 ( < 1 % )
+    Total combinational functions : 44 / 24,624 ( < 1 % )
+    Dedicated logic registers : 30 / 24,624 ( < 1 % )
+Total registers : 30
+Total pins : 30 / 151 ( 20 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )

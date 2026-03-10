@@ -38,7 +38,7 @@ reg [7:0] alu_result = 8'b0;
 program_counter pc_inst (
 	.bit_bus(bit_bus),
 	.clk(clk),
-   .Counter_Enable(Counter_Enable),
+   .Counter_Enable(~Counter_Enable),
    .Counter_Out(~Counter_Out),
    .Counter_In(~Counter_In),
    .Counter_Clear(~Counter_Clear)

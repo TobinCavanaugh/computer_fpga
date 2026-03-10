@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Thu Mar  5 09:10:33 2026
+Analysis & Synthesis Status : Successful - Tue Mar 10 09:01:52 2026
 Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 Revision Name : computer_fpga
 Top-level Entity Name : computer_fpga
 Family : Cyclone 10 LP
-Total logic elements : 8
-    Total combinational functions : 8
-    Dedicated logic registers : 8
-Total registers : 8
-Total pins : 29
+Total logic elements : 45
+    Total combinational functions : 44
+    Dedicated logic registers : 30
+Total registers : 30
+Total pins : 30
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
