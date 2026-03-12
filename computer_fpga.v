@@ -28,9 +28,6 @@ module computer_fpga
 	input wire alu_sub 			// Flag for A-B
 );
 
-// Hardcoded for now
-// reg Counter_Enable = 1'b1;
-
 reg [7:0] reg_A = 8'b0;
 reg [7:0] reg_B = 8'b0;
 reg [7:0] alu_result = 8'b0;
@@ -38,8 +35,8 @@ reg [7:0] alu_result = 8'b0;
 program_counter pc_inst (
 	.bit_bus(bit_bus),
 	.clk(clk),
-   .Counter_Enable(~Counter_Enable),
-   .Counter_Out(~Counter_Out),
+   .Counter_Enable(Counter_Enable),
+   .Counter_Out(Counter_Out),
    .Counter_In(~Counter_In),
    .Counter_Clear(~Counter_Clear)
 );

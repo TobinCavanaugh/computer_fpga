@@ -83,9 +83,9 @@ set_location_assignment PIN_R16 -to bit_bus[5]
 set_location_assignment PIN_N16 -to bit_bus[6]
 set_location_assignment PIN_N15 -to bit_bus[7]
 set_location_assignment PIN_F14 -to Counter_Clear
-set_location_assignment PIN_E15 -to Counter_Enable
+set_location_assignment PIN_N14 -to Counter_Enable
 set_location_assignment PIN_C11 -to Counter_In
-set_location_assignment PIN_D9 -to Counter_Out
+set_location_assignment PIN_P15 -to Counter_Out
 set_location_assignment PIN_E1 -to clk
 set_global_assignment -name VERILOG_FILE cpu_alu.v
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to alu_out

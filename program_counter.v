@@ -1,47 +1,33 @@
 module program_counter (
-    inout [7:0] bit_bus,
-    input wire clk,           
-    input wire Counter_Enable,
-    input wire Counter_Out,
-    input wire Counter_In,
-    input wire Counter_Clear
+    inout      [7:0] bit_bus,         // 8-bit bidirectional data bus
+    input wire       clk,             // System clock
+    input wire       Counter_Enable,  // Level-sensitive increment enable
+    input wire       Counter_Out,     // Control signal to output to bus
+    input wire       Counter_In,      // Control signal to load from bus
+    input wire       Counter_Clear    // Synchronous reset
 );
 
-    reg [7:0] counter_reg = 8'h81;
-    reg [19:0] debounce_timer = 0; // Enough for ~20ms debounce
-    reg clean_enable = 0;
-    reg enable_prev = 0;
+	// REWORK 
 
-    // 1. Tri-state Bus (Always active)
-    assign bit_bus = (Counter_Out) ? counter_reg : 8'bz;
+  // Initializing to 8'h00 is standard; 8'h81 if your specific architecture starts there
+  reg [7:0] counter_reg = 8'h00;
 
-    // 2. Debouncing Logic
-    // This ignores rapid flickers and only changes 'clean_enable' 
-    // when the button has been steady for a while.
-    always @(posedge clk) begin
-        if (Counter_Enable !== clean_enable) begin
-            debounce_timer <= debounce_timer + 1;
-            if (debounce_timer >= 1_000_000) begin // ~20ms at 50MHz
-                clean_enable <= Counter_Enable;
-                debounce_timer <= 0;
-            end
-        end else begin
-            debounce_timer <= 0;
-        end
+  // Drive the bus only when Counter_Out is active
+  assign bit_bus = (Counter_Out) ? counter_reg : 8'bz;
+
+  reg prev = 1'b0;
+
+  always @(posedge clk) begin
+    if (Counter_Clear) begin
+      // Synchronous Reset: Reset to 0 immediately on next clock edge
+      counter_reg <= 8'b0;
+    end else if (Counter_In) begin
+      counter_reg <= bit_bus;
+    end else if (prev == 0 && Counter_Enable == 1) begin
+      counter_reg <= counter_reg + 1;
     end
 
-    // 3. Counter Logic (Runs at full clock speed for responsiveness)
-    always @(posedge clk) begin
-        enable_prev <= clean_enable;
-
-        if (Counter_Clear) begin
-            counter_reg <= 8'b0;
-        end else if (Counter_In) begin
-            counter_reg <= bit_bus; // Load from bus
-        end else if (clean_enable && !enable_prev) begin 
-            // Trigger exactly ONCE per debounced button press
-            counter_reg <= counter_reg + 1;
-        end
-    end
+    prev <= Counter_Enable;
+  end
 
 endmodule

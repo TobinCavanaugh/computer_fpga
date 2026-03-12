@@ -1,5 +1,5 @@
 Analysis & Synthesis report for computer_fpga
-Tue Mar 10 09:01:52 2026
+Thu Mar 12 08:55:55 2026
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -14,12 +14,11 @@ Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Inverted Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
- 14. Analysis & Synthesis Suppressed Messages
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
+ 13. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -46,15 +45,15 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Mar 10 09:01:52 2026           ;
+; Analysis & Synthesis Status        ; Successful - Thu Mar 12 08:55:55 2026           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; computer_fpga                                   ;
 ; Top-level Entity Name              ; computer_fpga                                   ;
 ; Family                             ; Cyclone 10 LP                                   ;
-; Total logic elements               ; 45                                              ;
-;     Total combinational functions  ; 44                                              ;
-;     Dedicated logic registers      ; 30                                              ;
-; Total registers                    ; 30                                              ;
+; Total logic elements               ; 10                                              ;
+;     Total combinational functions  ; 9                                               ;
+;     Dedicated logic registers      ; 9                                               ;
+; Total registers                    ; 9                                               ;
 ; Total pins                         ; 30                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -181,20 +180,20 @@ on the Quartus Prime software download page.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 45        ;
+; Estimated Total logic elements              ; 10        ;
 ;                                             ;           ;
-; Total combinational functions               ; 44        ;
+; Total combinational functions               ; 9         ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 12        ;
-;     -- 3 input functions                    ; 4         ;
-;     -- <=2 input functions                  ; 28        ;
+;     -- 4 input functions                    ; 0         ;
+;     -- 3 input functions                    ; 1         ;
+;     -- <=2 input functions                  ; 8         ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 18        ;
-;     -- arithmetic mode                      ; 26        ;
+;     -- normal mode                          ; 2         ;
+;     -- arithmetic mode                      ; 7         ;
 ;                                             ;           ;
-; Total registers                             ; 30        ;
-;     -- Dedicated logic registers            ; 30        ;
+; Total registers                             ; 9         ;
+;     -- Dedicated logic registers            ; 9         ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 30        ;
@@ -202,9 +201,9 @@ on the Quartus Prime software download page.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 30        ;
-; Total fan-out                               ; 256       ;
-; Average fan-out                             ; 1.71      ;
+; Maximum fan-out                             ; 9         ;
+; Total fan-out                               ; 122       ;
+; Average fan-out                             ; 1.30      ;
 +---------------------------------------------+-----------+
 
 
@@ -213,8 +212,8 @@ on the Quartus Prime software download page.
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                    ; Entity Name     ; Library Name ;
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------+-----------------+--------------+
-; |computer_fpga               ; 44 (0)              ; 30 (0)                    ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |computer_fpga                         ; computer_fpga   ; work         ;
-;    |program_counter:pc_inst| ; 44 (44)             ; 30 (30)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |computer_fpga|program_counter:pc_inst ; program_counter ; work         ;
+; |computer_fpga               ; 9 (0)               ; 9 (0)                     ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |computer_fpga                         ; computer_fpga   ; work         ;
+;    |program_counter:pc_inst| ; 9 (9)               ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |computer_fpga|program_counter:pc_inst ; program_counter ; work         ;
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -224,9 +223,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 30    ;
-; Number of registers using Synchronous Clear  ; 20    ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 9     ;
+; Number of registers using Synchronous Clear  ; 8     ;
+; Number of registers using Synchronous Load   ; 8     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
@@ -234,25 +233,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; program_counter:pc_inst|counter_reg[0] ; 2       ;
-; program_counter:pc_inst|counter_reg[7] ; 2       ;
-; Total number of inverted registers = 2 ;         ;
-+----------------------------------------+---------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |computer_fpga|program_counter:pc_inst|debounce_timer[19] ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |computer_fpga|program_counter:pc_inst|counter_reg[0]     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |computer_fpga|program_counter:pc_inst|counter_reg[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -261,22 +248,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 30                          ;
-; cycloneiii_ff         ; 30                          ;
-;     SCLR              ; 20                          ;
-;     plain             ; 10                          ;
+; cycloneiii_ff         ; 9                           ;
+;     SCLR SLD          ; 8                           ;
+;     plain             ; 1                           ;
 ; cycloneiii_io_obuf    ; 16                          ;
-; cycloneiii_lcell_comb ; 44                          ;
-;     arith             ; 26                          ;
-;         2 data inputs ; 25                          ;
+; cycloneiii_lcell_comb ; 9                           ;
+;     arith             ; 7                           ;
+;         2 data inputs ; 6                           ;
 ;         3 data inputs ; 1                           ;
-;     normal            ; 18                          ;
-;         1 data inputs ; 2                           ;
+;     normal            ; 2                           ;
+;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 1                           ;
-;         3 data inputs ; 3                           ;
-;         4 data inputs ; 12                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.36                        ;
+; Max LUT depth         ; 2.70                        ;
+; Average LUT depth     ; 1.05                        ;
 +-----------------------+-----------------------------+
 
 
@@ -295,7 +280,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Tue Mar 10 09:01:40 2026
+    Info: Processing started: Thu Mar 12 08:55:45 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off computer_fpga -c computer_fpga
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -306,12 +291,11 @@ Info (12021): Found 1 design units, including 1 entities, in source file compute
 Info (12021): Found 1 design units, including 1 entities, in source file cpu_alu.v
     Info (12023): Found entity 1: cpu_alu File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/cpu_alu.v Line: 1
 Info (12127): Elaborating entity "computer_fpga" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at computer_fpga.v(34): object "reg_A" assigned a value but never read File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 34
-Warning (10036): Verilog HDL or VHDL warning at computer_fpga.v(35): object "reg_B" assigned a value but never read File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 35
-Warning (10036): Verilog HDL or VHDL warning at computer_fpga.v(36): object "alu_result" assigned a value but never read File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 36
-Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:pc_inst" File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 45
-Warning (10230): Verilog HDL assignment warning at program_counter.v(23): truncated value with size 32 to match size of target (20) File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/program_counter.v Line: 23
-Warning (10230): Verilog HDL assignment warning at program_counter.v(43): truncated value with size 32 to match size of target (8) File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/program_counter.v Line: 43
+Warning (10036): Verilog HDL or VHDL warning at computer_fpga.v(31): object "reg_A" assigned a value but never read File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 31
+Warning (10036): Verilog HDL or VHDL warning at computer_fpga.v(32): object "reg_B" assigned a value but never read File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 32
+Warning (10036): Verilog HDL or VHDL warning at computer_fpga.v(33): object "alu_result" assigned a value but never read File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 33
+Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:pc_inst" File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 42
+Warning (10230): Verilog HDL assignment warning at program_counter.v(25): truncated value with size 32 to match size of target (8) File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/program_counter.v Line: 25
 Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "reg_bus[0]" has no driver File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 15
     Warning (13040): bidirectional pin "reg_bus[1]" has no driver File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 15
@@ -335,16 +319,16 @@ Warning (21074): Design contains 9 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "regs_reset" File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 25
     Warning (15610): No output dependent on input pin "alu_out" File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 27
     Warning (15610): No output dependent on input pin "alu_sub" File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 29
-Info (21057): Implemented 75 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 40 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 14 input pins
     Info (21059): Implemented 0 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 45 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 25 warnings
-    Info: Peak virtual memory: 4750 megabytes
-    Info: Processing ended: Tue Mar 10 09:01:52 2026
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:30
+    Info (21061): Implemented 10 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
+    Info: Peak virtual memory: 4754 megabytes
+    Info: Processing ended: Thu Mar 12 08:55:55 2026
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:23
 
 
 +------------------------------------------+

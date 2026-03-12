@@ -1,5 +1,5 @@
 Timing Analyzer report for computer_fpga
-Tue Mar 10 09:02:05 2026
+Thu Mar 12 08:56:05 2026
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -104,7 +104,7 @@ on the Quartus Prime software download page.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.7%      ;
+;     Processors 2-4         ;   0.6%      ;
 +----------------------------+-------------+
 
 
@@ -117,13 +117,13 @@ on the Quartus Prime software download page.
 +------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
 
 
-+-------------------------------------------------+
-; Slow 1200mV 100C Model Fmax Summary             ;
-+-----------+-----------------+------------+------+
-; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
-+-----------+-----------------+------------+------+
-; 249.5 MHz ; 249.5 MHz       ; clk        ;      ;
-+-----------+-----------------+------------+------+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 100C Model Fmax Summary                                                                       ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 466.42 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -138,7 +138,7 @@ HTML report is unavailable in plain text report export.
 +-------+--------+---------------------+
 ; Clock ; Slack  ; End Point TNS       ;
 +-------+--------+---------------------+
-; clk   ; -3.008 ; -70.946             ;
+; clk   ; -1.144 ; -7.252              ;
 +-------+--------+---------------------+
 
 
@@ -147,7 +147,7 @@ HTML report is unavailable in plain text report export.
 +-------+-------+---------------------+
 ; Clock ; Slack ; End Point TNS       ;
 +-------+-------+---------------------+
-; clk   ; 0.419 ; 0.000               ;
+; clk   ; 0.441 ; 0.000               ;
 +-------+-------+---------------------+
 
 
@@ -168,224 +168,112 @@ No paths to report.
 +-------+--------+-----------------------------------+
 ; Clock ; Slack  ; End Point TNS                     ;
 +-------+--------+-----------------------------------+
-; clk   ; -3.000 ; -41.550                           ;
+; clk   ; -3.000 ; -14.565                           ;
 +-------+--------+-----------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Slow 1200mV 100C Model Setup: 'clk'                                                                                                                                    ;
-+--------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack  ; From Node                                  ; To Node                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+--------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
-; -3.008 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.070     ; 3.936      ;
-; -3.008 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.070     ; 3.936      ;
-; -3.008 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.070     ; 3.936      ;
-; -2.800 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.070     ; 3.728      ;
-; -2.800 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.070     ; 3.728      ;
-; -2.800 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.070     ; 3.728      ;
-; -2.700 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.072     ; 3.626      ;
-; -2.683 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.070     ; 3.611      ;
-; -2.683 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.070     ; 3.611      ;
-; -2.683 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.070     ; 3.611      ;
-; -2.654 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.584      ;
-; -2.654 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.584      ;
-; -2.654 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.584      ;
-; -2.653 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.583      ;
-; -2.653 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.583      ;
-; -2.653 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.583      ;
-; -2.601 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.936      ;
-; -2.601 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.936      ;
-; -2.601 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.936      ;
-; -2.601 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.936      ;
-; -2.601 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.936      ;
-; -2.601 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.936      ;
-; -2.600 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.496     ; 3.102      ;
-; -2.538 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.496     ; 3.040      ;
-; -2.533 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.460      ;
-; -2.533 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.460      ;
-; -2.533 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.460      ;
-; -2.533 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.460      ;
-; -2.533 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.460      ;
-; -2.533 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.460      ;
-; -2.533 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.460      ;
-; -2.533 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.460      ;
-; -2.533 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.460      ;
-; -2.533 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.460      ;
-; -2.492 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.072     ; 3.418      ;
-; -2.472 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.496     ; 2.974      ;
-; -2.460 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.390      ;
-; -2.460 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.390      ;
-; -2.460 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.390      ;
-; -2.404 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.496     ; 2.906      ;
-; -2.393 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.728      ;
-; -2.393 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.728      ;
-; -2.393 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.728      ;
-; -2.393 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.728      ;
-; -2.393 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.728      ;
-; -2.393 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.728      ;
-; -2.375 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.072     ; 3.301      ;
-; -2.351 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.070     ; 3.279      ;
-; -2.350 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.070     ; 3.278      ;
-; -2.343 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.273      ;
-; -2.343 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.273      ;
-; -2.343 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.273      ;
-; -2.338 ; program_counter:pc_inst|debounce_timer[4]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.496     ; 2.840      ;
-; -2.325 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.252      ;
-; -2.325 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.252      ;
-; -2.325 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.252      ;
-; -2.325 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.252      ;
-; -2.325 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.252      ;
-; -2.325 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.252      ;
-; -2.325 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.252      ;
-; -2.325 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.252      ;
-; -2.325 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.252      ;
-; -2.325 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.252      ;
-; -2.321 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 1.000        ; -0.495     ; 2.824      ;
-; -2.317 ; program_counter:pc_inst|debounce_timer[9]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.247      ;
-; -2.317 ; program_counter:pc_inst|debounce_timer[9]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.247      ;
-; -2.317 ; program_counter:pc_inst|debounce_timer[9]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.247      ;
-; -2.317 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 1.000        ; -0.495     ; 2.820      ;
-; -2.301 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 1.000        ; -0.495     ; 2.804      ;
-; -2.283 ; program_counter:pc_inst|clean_enable       ; program_counter:pc_inst|counter_reg[5]     ; clk          ; clk         ; 1.000        ; 0.338      ; 3.619      ;
-; -2.276 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.611      ;
-; -2.276 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.611      ;
-; -2.276 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.611      ;
-; -2.276 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.611      ;
-; -2.276 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.611      ;
-; -2.276 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.337      ; 3.611      ;
-; -2.268 ; program_counter:pc_inst|clean_enable       ; program_counter:pc_inst|counter_reg[7]     ; clk          ; clk         ; 1.000        ; 0.338      ; 3.604      ;
-; -2.265 ; program_counter:pc_inst|debounce_timer[5]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.496     ; 2.767      ;
-; -2.252 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.182      ;
-; -2.252 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.182      ;
-; -2.252 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.182      ;
-; -2.247 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.339      ; 3.584      ;
-; -2.247 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.339      ; 3.584      ;
-; -2.247 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.339      ; 3.584      ;
-; -2.247 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.339      ; 3.584      ;
-; -2.247 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.339      ; 3.584      ;
-; -2.247 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.339      ; 3.584      ;
-; -2.246 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.339      ; 3.583      ;
-; -2.246 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.339      ; 3.583      ;
-; -2.246 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.339      ; 3.583      ;
-; -2.246 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.339      ; 3.583      ;
-; -2.246 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.339      ; 3.583      ;
-; -2.246 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.339      ; 3.583      ;
-; -2.228 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 1.000        ; -0.495     ; 2.731      ;
-; -2.227 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.157      ;
-; -2.227 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.157      ;
-; -2.227 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.068     ; 3.157      ;
-; -2.208 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.135      ;
-; -2.208 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.135      ;
-; -2.208 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 1.000        ; -0.071     ; 3.135      ;
-+--------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 100C Model Setup: 'clk'                                                                                                                            ;
++--------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; -1.144 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; 0.307      ; 2.449      ;
+; -1.122 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.086     ; 2.034      ;
+; -1.106 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.086     ; 2.018      ;
+; -1.010 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; 0.307      ; 2.315      ;
+; -1.004 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.916      ;
+; -0.994 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; 0.307      ; 2.299      ;
+; -0.989 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.901      ;
+; -0.988 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.900      ;
+; -0.973 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.885      ;
+; -0.972 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.884      ;
+; -0.901 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.813      ;
+; -0.876 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; 0.307      ; 2.181      ;
+; -0.870 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.782      ;
+; -0.865 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.777      ;
+; -0.862 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.774      ;
+; -0.860 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; 0.307      ; 2.165      ;
+; -0.855 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.767      ;
+; -0.854 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.766      ;
+; -0.846 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.758      ;
+; -0.839 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.751      ;
+; -0.838 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.750      ;
+; -0.773 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.685      ;
+; -0.767 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.679      ;
+; -0.745 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; 0.307      ; 2.050      ;
+; -0.742 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 1.000        ; 0.307      ; 2.047      ;
+; -0.737 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.649      ;
+; -0.736 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.648      ;
+; -0.731 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.643      ;
+; -0.726 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 1.000        ; 0.307      ; 2.031      ;
+; -0.640 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; 0.307      ; 1.945      ;
+; -0.611 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; 0.307      ; 1.916      ;
+; -0.516 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 1.000        ; -0.070     ; 1.444      ;
+; -0.506 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; 0.307      ; 1.811      ;
+; -0.477 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; 0.307      ; 1.782      ;
+; -0.372 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 1.000        ; 0.307      ; 1.677      ;
+; -0.343 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 1.000        ; 0.307      ; 1.648      ;
+; -0.259 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.171      ;
+; -0.254 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.166      ;
+; -0.252 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.164      ;
+; -0.234 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 1.000        ; -0.070     ; 1.162      ;
+; -0.233 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.145      ;
+; -0.228 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.140      ;
+; -0.227 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 1.000        ; -0.086     ; 1.139      ;
+; 0.086  ; program_counter:pc_inst|counter_reg[7] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.086     ; 0.826      ;
++--------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Slow 1200mV 100C Model Hold: 'clk'                                                                                                                                    ;
-+-------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack ; From Node                                  ; To Node                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+-------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
-; 0.419 ; program_counter:pc_inst|clean_enable       ; program_counter:pc_inst|clean_enable       ; clk          ; clk         ; 0.000        ; 0.069      ; 0.674      ;
-; 0.458 ; program_counter:pc_inst|debounce_timer[19] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.069      ; 0.713      ;
-; 0.631 ; program_counter:pc_inst|debounce_timer[5]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.087      ; 0.904      ;
-; 0.633 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 0.000        ; 0.087      ; 0.906      ;
-; 0.633 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 0.000        ; 0.087      ; 0.906      ;
-; 0.636 ; program_counter:pc_inst|debounce_timer[4]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.087      ; 0.909      ;
-; 0.637 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 0.000        ; 0.087      ; 0.910      ;
-; 0.652 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 0.000        ; 0.087      ; 0.925      ;
-; 0.657 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 0.000        ; 0.069      ; 0.912      ;
-; 0.657 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 0.000        ; 0.069      ; 0.912      ;
-; 0.659 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 0.000        ; 0.070      ; 0.915      ;
-; 0.659 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.069      ; 0.914      ;
-; 0.660 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 0.000        ; 0.069      ; 0.915      ;
-; 0.660 ; program_counter:pc_inst|debounce_timer[17] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.069      ; 0.915      ;
-; 0.661 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.069      ; 0.916      ;
-; 0.661 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.069      ; 0.916      ;
-; 0.663 ; program_counter:pc_inst|debounce_timer[18] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.069      ; 0.918      ;
-; 0.667 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.069      ; 0.922      ;
-; 0.788 ; program_counter:pc_inst|counter_reg[7]     ; program_counter:pc_inst|counter_reg[7]     ; clk          ; clk         ; 0.000        ; 0.087      ; 1.061      ;
-; 0.836 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.092      ;
-; 0.839 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.095      ;
-; 0.952 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.225      ;
-; 0.952 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.225      ;
-; 0.963 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.236      ;
-; 0.967 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.240      ;
-; 0.967 ; program_counter:pc_inst|debounce_timer[4]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.240      ;
-; 0.968 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.241      ;
-; 0.972 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.245      ;
-; 0.976 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.231      ;
-; 0.976 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.231      ;
-; 0.979 ; program_counter:pc_inst|debounce_timer[17] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.234      ;
-; 0.986 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.241      ;
-; 0.989 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.244      ;
-; 0.990 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.246      ;
-; 0.990 ; program_counter:pc_inst|clean_enable       ; program_counter:pc_inst|enable_prev        ; clk          ; clk         ; 0.000        ; 0.070      ; 1.246      ;
-; 0.991 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.246      ;
-; 0.992 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.247      ;
-; 0.992 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.247      ;
-; 0.993 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.248      ;
-; 0.994 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.250      ;
-; 0.994 ; program_counter:pc_inst|debounce_timer[18] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.249      ;
-; 0.995 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.250      ;
-; 0.996 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.251      ;
-; 0.996 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.251      ;
-; 1.003 ; program_counter:pc_inst|counter_reg[3]     ; program_counter:pc_inst|counter_reg[3]     ; clk          ; clk         ; 0.000        ; 0.087      ; 1.276      ;
-; 1.004 ; program_counter:pc_inst|counter_reg[1]     ; program_counter:pc_inst|counter_reg[1]     ; clk          ; clk         ; 0.000        ; 0.087      ; 1.277      ;
-; 1.007 ; program_counter:pc_inst|counter_reg[6]     ; program_counter:pc_inst|counter_reg[6]     ; clk          ; clk         ; 0.000        ; 0.087      ; 1.280      ;
-; 1.009 ; program_counter:pc_inst|counter_reg[4]     ; program_counter:pc_inst|counter_reg[4]     ; clk          ; clk         ; 0.000        ; 0.087      ; 1.282      ;
-; 1.076 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.349      ;
-; 1.076 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.349      ;
-; 1.080 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.353      ;
-; 1.091 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.364      ;
-; 1.095 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.368      ;
-; 1.096 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.369      ;
-; 1.100 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.355      ;
-; 1.100 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.355      ;
-; 1.103 ; program_counter:pc_inst|debounce_timer[17] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.358      ;
-; 1.104 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.359      ;
-; 1.104 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.359      ;
-; 1.110 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.365      ;
-; 1.114 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.369      ;
-; 1.116 ; program_counter:pc_inst|debounce_timer[18] ; program_counter:pc_inst|clean_enable       ; clk          ; clk         ; 0.000        ; 0.069      ; 1.371      ;
-; 1.117 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.372      ;
-; 1.119 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.374      ;
-; 1.120 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.375      ;
-; 1.120 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.375      ;
-; 1.120 ; program_counter:pc_inst|counter_reg[0]     ; program_counter:pc_inst|counter_reg[0]     ; clk          ; clk         ; 0.000        ; 0.087      ; 1.393      ;
-; 1.123 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.378      ;
-; 1.124 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.379      ;
-; 1.124 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.379      ;
-; 1.124 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 0.000        ; 0.068      ; 1.378      ;
-; 1.129 ; program_counter:pc_inst|counter_reg[5]     ; program_counter:pc_inst|counter_reg[5]     ; clk          ; clk         ; 0.000        ; 0.087      ; 1.402      ;
-; 1.134 ; program_counter:pc_inst|counter_reg[2]     ; program_counter:pc_inst|counter_reg[2]     ; clk          ; clk         ; 0.000        ; 0.087      ; 1.407      ;
-; 1.155 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 0.000        ; 0.070      ; 1.411      ;
-; 1.175 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 0.000        ; 0.068      ; 1.429      ;
-; 1.181 ; program_counter:pc_inst|enable_prev        ; program_counter:pc_inst|counter_reg[0]     ; clk          ; clk         ; 0.000        ; 0.494      ; 1.861      ;
-; 1.204 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.477      ;
-; 1.219 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.087      ; 1.492      ;
-; 1.228 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.483      ;
-; 1.228 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.483      ;
-; 1.232 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.487      ;
-; 1.232 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.487      ;
-; 1.238 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.493      ;
-; 1.247 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.502      ;
-; 1.248 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.503      ;
-; 1.248 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.503      ;
-; 1.248 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 0.000        ; 0.068      ; 1.502      ;
-; 1.251 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.506      ;
-; 1.252 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.069      ; 1.507      ;
-; 1.252 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.068      ; 1.506      ;
-; 1.285 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 0.000        ; 0.068      ; 1.539      ;
-; 1.292 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|clean_enable       ; clk          ; clk         ; 0.000        ; 0.069      ; 1.547      ;
-; 1.296 ; program_counter:pc_inst|debounce_timer[19] ; program_counter:pc_inst|clean_enable       ; clk          ; clk         ; 0.000        ; 0.069      ; 1.551      ;
-; 1.299 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 0.000        ; 0.068      ; 1.553      ;
-; 1.303 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.068      ; 1.557      ;
-; 1.322 ; program_counter:pc_inst|counter_reg[5]     ; program_counter:pc_inst|counter_reg[6]     ; clk          ; clk         ; 0.000        ; 0.087      ; 1.595      ;
-; 1.323 ; program_counter:pc_inst|counter_reg[3]     ; program_counter:pc_inst|counter_reg[4]     ; clk          ; clk         ; 0.000        ; 0.087      ; 1.596      ;
-; 1.323 ; program_counter:pc_inst|counter_reg[0]     ; program_counter:pc_inst|counter_reg[1]     ; clk          ; clk         ; 0.000        ; 0.087      ; 1.596      ;
-; 1.335 ; program_counter:pc_inst|counter_reg[2]     ; program_counter:pc_inst|counter_reg[3]     ; clk          ; clk         ; 0.000        ; 0.087      ; 1.608      ;
-; 1.335 ; program_counter:pc_inst|counter_reg[6]     ; program_counter:pc_inst|counter_reg[7]     ; clk          ; clk         ; 0.000        ; 0.087      ; 1.608      ;
-+-------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 100C Model Hold: 'clk'                                                                                                                            ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.441 ; program_counter:pc_inst|counter_reg[7] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.086      ; 0.713      ;
+; 0.614 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.263      ;
+; 0.618 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.267      ;
+; 0.656 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 0.000        ; 0.086      ; 0.928      ;
+; 0.656 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.086      ; 0.928      ;
+; 0.658 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.086      ; 0.930      ;
+; 0.659 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.086      ; 0.931      ;
+; 0.661 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.086      ; 0.933      ;
+; 0.662 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.086      ; 0.934      ;
+; 0.690 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 0.000        ; 0.070      ; 0.946      ;
+; 0.742 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.391      ;
+; 0.746 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.395      ;
+; 0.870 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.519      ;
+; 0.874 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.523      ;
+; 0.922 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.571      ;
+; 0.975 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.247      ;
+; 0.975 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.247      ;
+; 0.978 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.250      ;
+; 0.988 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.260      ;
+; 0.992 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.264      ;
+; 0.992 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.264      ;
+; 0.993 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.265      ;
+; 0.996 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.268      ;
+; 0.998 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.647      ;
+; 1.004 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.653      ;
+; 1.019 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 0.000        ; 0.070      ; 1.275      ;
+; 1.050 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.699      ;
+; 1.099 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.371      ;
+; 1.099 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.371      ;
+; 1.102 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.374      ;
+; 1.103 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.375      ;
+; 1.103 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.375      ;
+; 1.116 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.388      ;
+; 1.120 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.392      ;
+; 1.124 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.396      ;
+; 1.132 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.781      ;
+; 1.178 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.827      ;
+; 1.227 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.499      ;
+; 1.227 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.499      ;
+; 1.231 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.503      ;
+; 1.248 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.520      ;
+; 1.260 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.909      ;
+; 1.306 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.463      ; 1.955      ;
+; 1.355 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.086      ; 1.627      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
 ------------------------------------------------
@@ -399,7 +287,7 @@ No synchronizer chains to report.
 +------------+-----------------+------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
 +------------+-----------------+------------+---------------------------------------------------------------+
-; 281.37 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 544.96 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
 +------------+-----------------+------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -409,7 +297,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+---------------------+
 ; Clock ; Slack  ; End Point TNS       ;
 +-------+--------+---------------------+
-; clk   ; -2.554 ; -59.518             ;
+; clk   ; -0.835 ; -5.114              ;
 +-------+--------+---------------------+
 
 
@@ -418,7 +306,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+---------------------+
 ; Clock ; Slack ; End Point TNS       ;
 +-------+-------+---------------------+
-; clk   ; 0.345 ; 0.000               ;
+; clk   ; 0.384 ; 0.000               ;
 +-------+-------+---------------------+
 
 
@@ -439,224 +327,112 @@ No paths to report.
 +-------+--------+-----------------------------------+
 ; Clock ; Slack  ; End Point TNS                     ;
 +-------+--------+-----------------------------------+
-; clk   ; -3.000 ; -41.550                           ;
+; clk   ; -3.000 ; -14.565                           ;
 +-------+--------+-----------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Slow 1200mV -40C Model Setup: 'clk'                                                                                                                                    ;
-+--------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack  ; From Node                                  ; To Node                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+--------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
-; -2.554 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.062     ; 3.492      ;
-; -2.554 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 3.492      ;
-; -2.554 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.062     ; 3.492      ;
-; -2.389 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.062     ; 3.327      ;
-; -2.389 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 3.327      ;
-; -2.389 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.062     ; 3.327      ;
-; -2.297 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.065     ; 3.232      ;
-; -2.284 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.062     ; 3.222      ;
-; -2.284 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 3.222      ;
-; -2.284 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.062     ; 3.222      ;
-; -2.247 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.059     ; 3.188      ;
-; -2.247 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.059     ; 3.188      ;
-; -2.247 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.059     ; 3.188      ;
-; -2.245 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.059     ; 3.186      ;
-; -2.245 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.059     ; 3.186      ;
-; -2.245 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.059     ; 3.186      ;
-; -2.189 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.492      ;
-; -2.189 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.492      ;
-; -2.189 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.492      ;
-; -2.189 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.492      ;
-; -2.189 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.492      ;
-; -2.189 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.492      ;
-; -2.159 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.445     ; 2.714      ;
-; -2.155 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 1.000        ; -0.064     ; 3.091      ;
-; -2.155 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 1.000        ; -0.064     ; 3.091      ;
-; -2.155 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 1.000        ; -0.064     ; 3.091      ;
-; -2.155 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 1.000        ; -0.064     ; 3.091      ;
-; -2.155 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 1.000        ; -0.064     ; 3.091      ;
-; -2.155 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 1.000        ; -0.064     ; 3.091      ;
-; -2.155 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 1.000        ; -0.064     ; 3.091      ;
-; -2.155 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 1.000        ; -0.064     ; 3.091      ;
-; -2.155 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 1.000        ; -0.064     ; 3.091      ;
-; -2.155 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 1.000        ; -0.064     ; 3.091      ;
-; -2.132 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.065     ; 3.067      ;
-; -2.071 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.445     ; 2.626      ;
-; -2.069 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.059     ; 3.010      ;
-; -2.069 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.059     ; 3.010      ;
-; -2.069 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.059     ; 3.010      ;
-; -2.054 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.445     ; 2.609      ;
-; -2.027 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.065     ; 2.962      ;
-; -2.024 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.327      ;
-; -2.024 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.327      ;
-; -2.024 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.327      ;
-; -2.024 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.327      ;
-; -2.024 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.327      ;
-; -2.024 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.327      ;
-; -1.990 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.926      ;
-; -1.990 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.926      ;
-; -1.990 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.926      ;
-; -1.990 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.926      ;
-; -1.990 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.926      ;
-; -1.990 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.926      ;
-; -1.990 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.926      ;
-; -1.990 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.926      ;
-; -1.990 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.926      ;
-; -1.990 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.926      ;
-; -1.975 ; program_counter:pc_inst|debounce_timer[9]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.059     ; 2.916      ;
-; -1.975 ; program_counter:pc_inst|debounce_timer[9]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.059     ; 2.916      ;
-; -1.975 ; program_counter:pc_inst|debounce_timer[9]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.059     ; 2.916      ;
-; -1.975 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.062     ; 2.913      ;
-; -1.973 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.062     ; 2.911      ;
-; -1.963 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.445     ; 2.518      ;
-; -1.961 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.059     ; 2.902      ;
-; -1.961 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.059     ; 2.902      ;
-; -1.961 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.059     ; 2.902      ;
-; -1.946 ; program_counter:pc_inst|debounce_timer[4]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.445     ; 2.501      ;
-; -1.919 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.222      ;
-; -1.919 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.222      ;
-; -1.919 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.222      ;
-; -1.919 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.222      ;
-; -1.919 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.222      ;
-; -1.919 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.303      ; 3.222      ;
-; -1.894 ; program_counter:pc_inst|clean_enable       ; program_counter:pc_inst|counter_reg[5]     ; clk          ; clk         ; 1.000        ; 0.306      ; 3.200      ;
-; -1.885 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.821      ;
-; -1.885 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.821      ;
-; -1.885 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.821      ;
-; -1.885 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.821      ;
-; -1.885 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.821      ;
-; -1.885 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.821      ;
-; -1.885 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.821      ;
-; -1.885 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.821      ;
-; -1.885 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.821      ;
-; -1.885 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 1.000        ; -0.064     ; 2.821      ;
-; -1.883 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.059     ; 2.824      ;
-; -1.883 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.059     ; 2.824      ;
-; -1.883 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.059     ; 2.824      ;
-; -1.882 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.306      ; 3.188      ;
-; -1.882 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.306      ; 3.188      ;
-; -1.882 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.306      ; 3.188      ;
-; -1.882 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.059     ; 2.823      ;
-; -1.882 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.059     ; 2.823      ;
-; -1.882 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.059     ; 2.823      ;
-; -1.882 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.306      ; 3.188      ;
-; -1.882 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.306      ; 3.188      ;
-; -1.882 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.306      ; 3.188      ;
-; -1.880 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.306      ; 3.186      ;
-; -1.880 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.306      ; 3.186      ;
-; -1.880 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.306      ; 3.186      ;
-; -1.880 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.306      ; 3.186      ;
-; -1.880 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.306      ; 3.186      ;
-+--------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV -40C Model Setup: 'clk'                                                                                                                            ;
++--------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.835 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; 0.274      ; 2.109      ;
+; -0.806 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.730      ;
+; -0.773 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.697      ;
+; -0.727 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.651      ;
+; -0.727 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; 0.274      ; 2.001      ;
+; -0.698 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.622      ;
+; -0.698 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.622      ;
+; -0.694 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; 0.274      ; 1.968      ;
+; -0.665 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.589      ;
+; -0.665 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.589      ;
+; -0.623 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.547      ;
+; -0.619 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.543      ;
+; -0.619 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; 0.274      ; 1.893      ;
+; -0.617 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.541      ;
+; -0.592 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.516      ;
+; -0.590 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.514      ;
+; -0.590 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.514      ;
+; -0.586 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; 0.274      ; 1.860      ;
+; -0.559 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.483      ;
+; -0.557 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.481      ;
+; -0.557 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.481      ;
+; -0.521 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.445      ;
+; -0.515 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.439      ;
+; -0.512 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.436      ;
+; -0.511 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.435      ;
+; -0.511 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 1.000        ; 0.274      ; 1.785      ;
+; -0.509 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.433      ;
+; -0.485 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; 0.274      ; 1.759      ;
+; -0.478 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 1.000        ; 0.274      ; 1.752      ;
+; -0.381 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; 0.274      ; 1.655      ;
+; -0.377 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; 0.274      ; 1.651      ;
+; -0.328 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 1.000        ; -0.062     ; 1.266      ;
+; -0.273 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; 0.274      ; 1.547      ;
+; -0.269 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; 0.274      ; 1.543      ;
+; -0.165 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 1.000        ; 0.274      ; 1.439      ;
+; -0.161 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 1.000        ; 0.274      ; 1.435      ;
+; -0.078 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; -0.076     ; 1.002      ;
+; -0.070 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 1.000        ; -0.076     ; 0.994      ;
+; -0.070 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.076     ; 0.994      ;
+; -0.061 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.076     ; 0.985      ;
+; -0.058 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 1.000        ; -0.076     ; 0.982      ;
+; -0.058 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; -0.076     ; 0.982      ;
+; -0.056 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 1.000        ; -0.062     ; 0.994      ;
+; 0.205  ; program_counter:pc_inst|counter_reg[7] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.076     ; 0.719      ;
++--------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Slow 1200mV -40C Model Hold: 'clk'                                                                                                                                    ;
-+-------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack ; From Node                                  ; To Node                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+-------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
-; 0.345 ; program_counter:pc_inst|clean_enable       ; program_counter:pc_inst|clean_enable       ; clk          ; clk         ; 0.000        ; 0.061      ; 0.574      ;
-; 0.399 ; program_counter:pc_inst|debounce_timer[19] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.061      ; 0.628      ;
-; 0.558 ; program_counter:pc_inst|debounce_timer[5]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.077      ; 0.803      ;
-; 0.562 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 0.000        ; 0.077      ; 0.807      ;
-; 0.562 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 0.000        ; 0.077      ; 0.807      ;
-; 0.564 ; program_counter:pc_inst|debounce_timer[4]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.077      ; 0.809      ;
-; 0.564 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 0.000        ; 0.077      ; 0.809      ;
-; 0.574 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 0.000        ; 0.077      ; 0.819      ;
-; 0.581 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 0.000        ; 0.061      ; 0.810      ;
-; 0.584 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 0.000        ; 0.061      ; 0.813      ;
-; 0.584 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.061      ; 0.813      ;
-; 0.585 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 0.000        ; 0.061      ; 0.814      ;
-; 0.585 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.815      ;
-; 0.586 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.061      ; 0.815      ;
-; 0.587 ; program_counter:pc_inst|debounce_timer[17] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.061      ; 0.816      ;
-; 0.587 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.061      ; 0.816      ;
-; 0.589 ; program_counter:pc_inst|debounce_timer[18] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.061      ; 0.818      ;
-; 0.590 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.061      ; 0.819      ;
-; 0.698 ; program_counter:pc_inst|counter_reg[7]     ; program_counter:pc_inst|counter_reg[7]     ; clk          ; clk         ; 0.000        ; 0.077      ; 0.943      ;
-; 0.747 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.977      ;
-; 0.749 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 0.000        ; 0.062      ; 0.979      ;
-; 0.834 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.079      ;
-; 0.840 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.085      ;
-; 0.840 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.085      ;
-; 0.840 ; program_counter:pc_inst|debounce_timer[4]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.085      ;
-; 0.840 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.085      ;
-; 0.848 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.093      ;
-; 0.854 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.099      ;
-; 0.857 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.086      ;
-; 0.858 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.087      ;
-; 0.861 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.091      ;
-; 0.861 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.090      ;
-; 0.862 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.091      ;
-; 0.862 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.091      ;
-; 0.863 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.092      ;
-; 0.865 ; program_counter:pc_inst|debounce_timer[18] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.094      ;
-; 0.865 ; program_counter:pc_inst|debounce_timer[17] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.094      ;
-; 0.867 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.096      ;
-; 0.871 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.100      ;
-; 0.875 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.104      ;
-; 0.875 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.105      ;
-; 0.876 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.105      ;
-; 0.877 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.106      ;
-; 0.882 ; program_counter:pc_inst|clean_enable       ; program_counter:pc_inst|enable_prev        ; clk          ; clk         ; 0.000        ; 0.061      ; 1.111      ;
-; 0.886 ; program_counter:pc_inst|counter_reg[3]     ; program_counter:pc_inst|counter_reg[3]     ; clk          ; clk         ; 0.000        ; 0.077      ; 1.131      ;
-; 0.888 ; program_counter:pc_inst|counter_reg[1]     ; program_counter:pc_inst|counter_reg[1]     ; clk          ; clk         ; 0.000        ; 0.077      ; 1.133      ;
-; 0.892 ; program_counter:pc_inst|counter_reg[6]     ; program_counter:pc_inst|counter_reg[6]     ; clk          ; clk         ; 0.000        ; 0.077      ; 1.137      ;
-; 0.894 ; program_counter:pc_inst|counter_reg[4]     ; program_counter:pc_inst|counter_reg[4]     ; clk          ; clk         ; 0.000        ; 0.077      ; 1.139      ;
-; 0.930 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.175      ;
-; 0.930 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.175      ;
-; 0.938 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.183      ;
-; 0.944 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.189      ;
-; 0.944 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.189      ;
-; 0.948 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.177      ;
-; 0.952 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.197      ;
-; 0.952 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.181      ;
-; 0.955 ; program_counter:pc_inst|debounce_timer[17] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.184      ;
-; 0.957 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.186      ;
-; 0.961 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.190      ;
-; 0.962 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.191      ;
-; 0.965 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.194      ;
-; 0.966 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.195      ;
-; 0.966 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.195      ;
-; 0.967 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.196      ;
-; 0.970 ; program_counter:pc_inst|debounce_timer[18] ; program_counter:pc_inst|clean_enable       ; clk          ; clk         ; 0.000        ; 0.061      ; 1.199      ;
-; 0.971 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.200      ;
-; 0.979 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.208      ;
-; 0.980 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.209      ;
-; 0.981 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.210      ;
-; 0.982 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 0.000        ; 0.059      ; 1.209      ;
-; 0.989 ; program_counter:pc_inst|counter_reg[0]     ; program_counter:pc_inst|counter_reg[0]     ; clk          ; clk         ; 0.000        ; 0.077      ; 1.234      ;
-; 1.004 ; program_counter:pc_inst|counter_reg[5]     ; program_counter:pc_inst|counter_reg[5]     ; clk          ; clk         ; 0.000        ; 0.077      ; 1.249      ;
-; 1.010 ; program_counter:pc_inst|counter_reg[2]     ; program_counter:pc_inst|counter_reg[2]     ; clk          ; clk         ; 0.000        ; 0.077      ; 1.255      ;
-; 1.030 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 0.000        ; 0.062      ; 1.260      ;
-; 1.033 ; program_counter:pc_inst|enable_prev        ; program_counter:pc_inst|counter_reg[0]     ; clk          ; clk         ; 0.000        ; 0.444      ; 1.645      ;
-; 1.034 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.279      ;
-; 1.042 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.077      ; 1.287      ;
-; 1.044 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 0.000        ; 0.059      ; 1.271      ;
-; 1.052 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.281      ;
-; 1.056 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.285      ;
-; 1.061 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.290      ;
-; 1.066 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.295      ;
-; 1.069 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.298      ;
-; 1.070 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.299      ;
-; 1.070 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.299      ;
-; 1.071 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.300      ;
-; 1.072 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 0.000        ; 0.059      ; 1.299      ;
-; 1.083 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.312      ;
-; 1.084 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.313      ;
-; 1.086 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.059      ; 1.313      ;
-; 1.117 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|clean_enable       ; clk          ; clk         ; 0.000        ; 0.061      ; 1.346      ;
-; 1.118 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 0.000        ; 0.059      ; 1.345      ;
-; 1.137 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 0.000        ; 0.059      ; 1.364      ;
-; 1.137 ; program_counter:pc_inst|debounce_timer[19] ; program_counter:pc_inst|clean_enable       ; clk          ; clk         ; 0.000        ; 0.061      ; 1.366      ;
-; 1.148 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.059      ; 1.375      ;
-; 1.152 ; program_counter:pc_inst|counter_reg[2]     ; program_counter:pc_inst|counter_reg[3]     ; clk          ; clk         ; 0.000        ; 0.077      ; 1.397      ;
-; 1.156 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.385      ;
-; 1.160 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.061      ; 1.389      ;
-; 1.162 ; program_counter:pc_inst|counter_reg[5]     ; program_counter:pc_inst|counter_reg[6]     ; clk          ; clk         ; 0.000        ; 0.077      ; 1.407      ;
-; 1.163 ; program_counter:pc_inst|counter_reg[3]     ; program_counter:pc_inst|counter_reg[4]     ; clk          ; clk         ; 0.000        ; 0.077      ; 1.408      ;
-+-------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV -40C Model Hold: 'clk'                                                                                                                            ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.384 ; program_counter:pc_inst|counter_reg[7] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.076      ; 0.628      ;
+; 0.523 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.103      ;
+; 0.537 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.117      ;
+; 0.578 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 0.000        ; 0.076      ; 0.822      ;
+; 0.579 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.076      ; 0.823      ;
+; 0.582 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.076      ; 0.826      ;
+; 0.583 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.076      ; 0.827      ;
+; 0.584 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.076      ; 0.828      ;
+; 0.585 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.076      ; 0.829      ;
+; 0.612 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 0.000        ; 0.062      ; 0.842      ;
+; 0.627 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.207      ;
+; 0.641 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.221      ;
+; 0.731 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.311      ;
+; 0.745 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.325      ;
+; 0.786 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.366      ;
+; 0.835 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.415      ;
+; 0.855 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.099      ;
+; 0.855 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.099      ;
+; 0.856 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.100      ;
+; 0.860 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.104      ;
+; 0.861 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.105      ;
+; 0.861 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.105      ;
+; 0.869 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.113      ;
+; 0.870 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.450      ;
+; 0.874 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.118      ;
+; 0.874 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 0.000        ; 0.062      ; 1.104      ;
+; 0.890 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.470      ;
+; 0.945 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.189      ;
+; 0.946 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.190      ;
+; 0.951 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.195      ;
+; 0.959 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.203      ;
+; 0.959 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.203      ;
+; 0.960 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.204      ;
+; 0.964 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.208      ;
+; 0.974 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.554      ;
+; 0.978 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.222      ;
+; 0.994 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.574      ;
+; 1.049 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.293      ;
+; 1.050 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.294      ;
+; 1.063 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.307      ;
+; 1.068 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.312      ;
+; 1.078 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.658      ;
+; 1.098 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.412      ; 1.678      ;
+; 1.153 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.076      ; 1.397      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
 ------------------------------------------------
@@ -667,11 +443,11 @@ No synchronizer chains to report.
 
 +--------------------------------------+
 ; Fast 1200mV -40C Model Setup Summary ;
-+-------+--------+---------------------+
-; Clock ; Slack  ; End Point TNS       ;
-+-------+--------+---------------------+
-; clk   ; -0.809 ; -15.830             ;
-+-------+--------+---------------------+
++-------+-------+----------------------+
+; Clock ; Slack ; End Point TNS        ;
++-------+-------+----------------------+
+; clk   ; 0.021 ; 0.000                ;
++-------+-------+----------------------+
 
 
 +-------------------------------------+
@@ -679,7 +455,7 @@ No synchronizer chains to report.
 +-------+-------+---------------------+
 ; Clock ; Slack ; End Point TNS       ;
 +-------+-------+---------------------+
-; clk   ; 0.180 ; 0.000               ;
+; clk   ; 0.189 ; 0.000               ;
 +-------+-------+---------------------+
 
 
@@ -700,224 +476,112 @@ No paths to report.
 +-------+--------+-----------------------------------+
 ; Clock ; Slack  ; End Point TNS                     ;
 +-------+--------+-----------------------------------+
-; clk   ; -3.000 ; -43.125                           ;
+; clk   ; -3.000 ; -15.142                           ;
 +-------+--------+-----------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fast 1200mV -40C Model Setup: 'clk'                                                                                                                                    ;
-+--------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack  ; From Node                                  ; To Node                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+--------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
-; -0.809 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.034     ; 1.763      ;
-; -0.809 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.034     ; 1.763      ;
-; -0.809 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.034     ; 1.763      ;
-; -0.703 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.034     ; 1.657      ;
-; -0.703 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.034     ; 1.657      ;
-; -0.703 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.034     ; 1.657      ;
-; -0.652 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.034     ; 1.606      ;
-; -0.652 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.034     ; 1.606      ;
-; -0.652 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.034     ; 1.606      ;
-; -0.649 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.036     ; 1.601      ;
-; -0.643 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.598      ;
-; -0.643 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.598      ;
-; -0.643 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.598      ;
-; -0.639 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.594      ;
-; -0.639 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.594      ;
-; -0.639 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.594      ;
-; -0.633 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.226     ; 1.395      ;
-; -0.627 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.763      ;
-; -0.627 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.763      ;
-; -0.627 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.763      ;
-; -0.627 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.763      ;
-; -0.627 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.763      ;
-; -0.627 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.763      ;
-; -0.616 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.226     ; 1.378      ;
-; -0.571 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.524      ;
-; -0.571 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.524      ;
-; -0.571 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.524      ;
-; -0.571 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.524      ;
-; -0.571 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.524      ;
-; -0.571 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.524      ;
-; -0.571 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.524      ;
-; -0.571 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.524      ;
-; -0.571 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.524      ;
-; -0.571 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.524      ;
-; -0.569 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.226     ; 1.331      ;
-; -0.563 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.036     ; 1.515      ;
-; -0.553 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.226     ; 1.315      ;
-; -0.548 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.503      ;
-; -0.548 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.503      ;
-; -0.548 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.503      ;
-; -0.537 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 1.000        ; -0.225     ; 1.300      ;
-; -0.533 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 1.000        ; -0.225     ; 1.296      ;
-; -0.521 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.657      ;
-; -0.521 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.657      ;
-; -0.521 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.657      ;
-; -0.521 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.657      ;
-; -0.521 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.657      ;
-; -0.521 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.657      ;
-; -0.520 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 1.000        ; -0.225     ; 1.283      ;
-; -0.510 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.036     ; 1.462      ;
-; -0.506 ; program_counter:pc_inst|debounce_timer[9]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.461      ;
-; -0.506 ; program_counter:pc_inst|debounce_timer[9]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.461      ;
-; -0.506 ; program_counter:pc_inst|debounce_timer[9]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.461      ;
-; -0.502 ; program_counter:pc_inst|debounce_timer[5]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.226     ; 1.264      ;
-; -0.499 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.454      ;
-; -0.499 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.454      ;
-; -0.499 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.454      ;
-; -0.490 ; program_counter:pc_inst|debounce_timer[4]  ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.226     ; 1.252      ;
-; -0.489 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 1.000        ; -0.225     ; 1.252      ;
-; -0.486 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.439      ;
-; -0.486 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.439      ;
-; -0.486 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.439      ;
-; -0.486 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.439      ;
-; -0.486 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.439      ;
-; -0.486 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.439      ;
-; -0.486 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.439      ;
-; -0.486 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.439      ;
-; -0.486 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.439      ;
-; -0.486 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 1.000        ; -0.035     ; 1.439      ;
-; -0.483 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.035     ; 1.436      ;
-; -0.483 ; program_counter:pc_inst|clean_enable       ; program_counter:pc_inst|counter_reg[5]     ; clk          ; clk         ; 1.000        ; 0.148      ; 1.619      ;
-; -0.480 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[9]  ; clk          ; clk         ; 1.000        ; -0.035     ; 1.433      ;
-; -0.476 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.431      ;
-; -0.476 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.431      ;
-; -0.476 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.431      ;
-; -0.473 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 1.000        ; -0.225     ; 1.236      ;
-; -0.473 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 1.000        ; -0.225     ; 1.236      ;
-; -0.472 ; program_counter:pc_inst|clean_enable       ; program_counter:pc_inst|counter_reg[7]     ; clk          ; clk         ; 1.000        ; 0.148      ; 1.608      ;
-; -0.471 ; program_counter:pc_inst|clean_enable       ; program_counter:pc_inst|counter_reg[6]     ; clk          ; clk         ; 1.000        ; 0.148      ; 1.607      ;
-; -0.470 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.606      ;
-; -0.470 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.606      ;
-; -0.470 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.606      ;
-; -0.470 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.606      ;
-; -0.470 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.606      ;
-; -0.470 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.148      ; 1.606      ;
-; -0.469 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 1.000        ; -0.225     ; 1.232      ;
-; -0.469 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 1.000        ; -0.225     ; 1.232      ;
-; -0.462 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.417      ;
-; -0.462 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.417      ;
-; -0.462 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.417      ;
-; -0.461 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.149      ; 1.598      ;
-; -0.461 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.149      ; 1.598      ;
-; -0.461 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 1.000        ; 0.149      ; 1.598      ;
-; -0.461 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.149      ; 1.598      ;
-; -0.461 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 1.000        ; 0.149      ; 1.598      ;
-; -0.461 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 1.000        ; 0.149      ; 1.598      ;
-; -0.457 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 1.000        ; -0.225     ; 1.220      ;
-; -0.457 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 1.000        ; 0.149      ; 1.594      ;
-; -0.457 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 1.000        ; 0.149      ; 1.594      ;
-; -0.457 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 1.000        ; 0.149      ; 1.594      ;
-+--------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV -40C Model Setup: 'clk'                                                                                                                           ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.021 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.926      ;
+; 0.025 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.922      ;
+; 0.033 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; 0.136      ; 1.091      ;
+; 0.085 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.862      ;
+; 0.085 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.862      ;
+; 0.089 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.858      ;
+; 0.089 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.858      ;
+; 0.093 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; 0.136      ; 1.031      ;
+; 0.097 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; 0.136      ; 1.027      ;
+; 0.099 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.848      ;
+; 0.131 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.816      ;
+; 0.146 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.801      ;
+; 0.149 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.798      ;
+; 0.149 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.798      ;
+; 0.150 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.797      ;
+; 0.153 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.794      ;
+; 0.153 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.794      ;
+; 0.157 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; 0.136      ; 0.967      ;
+; 0.161 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; 0.136      ; 0.963      ;
+; 0.163 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.784      ;
+; 0.164 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.783      ;
+; 0.194 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.753      ;
+; 0.195 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.752      ;
+; 0.212 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; 0.136      ; 0.912      ;
+; 0.221 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 1.000        ; 0.136      ; 0.903      ;
+; 0.225 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 1.000        ; 0.136      ; 0.899      ;
+; 0.227 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.720      ;
+; 0.227 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.720      ;
+; 0.228 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.719      ;
+; 0.244 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; 0.136      ; 0.880      ;
+; 0.276 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; 0.136      ; 0.848      ;
+; 0.303 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 1.000        ; -0.035     ; 0.650      ;
+; 0.308 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; 0.136      ; 0.816      ;
+; 0.340 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; 0.136      ; 0.784      ;
+; 0.372 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 1.000        ; 0.136      ; 0.752      ;
+; 0.404 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 1.000        ; 0.136      ; 0.720      ;
+; 0.416 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.531      ;
+; 0.418 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.529      ;
+; 0.419 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.528      ;
+; 0.425 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 1.000        ; -0.035     ; 0.528      ;
+; 0.427 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.520      ;
+; 0.429 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.518      ;
+; 0.429 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.518      ;
+; 0.577 ; program_counter:pc_inst|counter_reg[7] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 1.000        ; -0.041     ; 0.370      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fast 1200mV -40C Model Hold: 'clk'                                                                                                                                    ;
-+-------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack ; From Node                                  ; To Node                                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+-------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
-; 0.180 ; program_counter:pc_inst|clean_enable       ; program_counter:pc_inst|clean_enable       ; clk          ; clk         ; 0.000        ; 0.034      ; 0.296      ;
-; 0.196 ; program_counter:pc_inst|debounce_timer[19] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.312      ;
-; 0.269 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.393      ;
-; 0.269 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.393      ;
-; 0.269 ; program_counter:pc_inst|debounce_timer[5]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.393      ;
-; 0.270 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.394      ;
-; 0.271 ; program_counter:pc_inst|debounce_timer[4]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.395      ;
-; 0.278 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[0]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.402      ;
-; 0.280 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.396      ;
-; 0.281 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.397      ;
-; 0.281 ; program_counter:pc_inst|debounce_timer[17] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.397      ;
-; 0.282 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.398      ;
-; 0.282 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.398      ;
-; 0.282 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[6]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.398      ;
-; 0.282 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.398      ;
-; 0.283 ; program_counter:pc_inst|debounce_timer[18] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.399      ;
-; 0.283 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.399      ;
-; 0.287 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.403      ;
-; 0.340 ; program_counter:pc_inst|counter_reg[7]     ; program_counter:pc_inst|counter_reg[7]     ; clk          ; clk         ; 0.000        ; 0.042      ; 0.464      ;
-; 0.352 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.468      ;
-; 0.355 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.471      ;
-; 0.413 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.537      ;
-; 0.413 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.537      ;
-; 0.417 ; program_counter:pc_inst|clean_enable       ; program_counter:pc_inst|enable_prev        ; clk          ; clk         ; 0.000        ; 0.034      ; 0.533      ;
-; 0.422 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[1]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.546      ;
-; 0.423 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.547      ;
-; 0.424 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[2]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.548      ;
-; 0.424 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.540      ;
-; 0.424 ; program_counter:pc_inst|debounce_timer[4]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.548      ;
-; 0.425 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.549      ;
-; 0.425 ; program_counter:pc_inst|debounce_timer[17] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.541      ;
-; 0.426 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.542      ;
-; 0.427 ; program_counter:pc_inst|counter_reg[6]     ; program_counter:pc_inst|counter_reg[6]     ; clk          ; clk         ; 0.000        ; 0.042      ; 0.551      ;
-; 0.428 ; program_counter:pc_inst|counter_reg[3]     ; program_counter:pc_inst|counter_reg[3]     ; clk          ; clk         ; 0.000        ; 0.042      ; 0.552      ;
-; 0.429 ; program_counter:pc_inst|counter_reg[1]     ; program_counter:pc_inst|counter_reg[1]     ; clk          ; clk         ; 0.000        ; 0.042      ; 0.553      ;
-; 0.430 ; program_counter:pc_inst|counter_reg[4]     ; program_counter:pc_inst|counter_reg[4]     ; clk          ; clk         ; 0.000        ; 0.042      ; 0.554      ;
-; 0.431 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.547      ;
-; 0.434 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.550      ;
-; 0.434 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.550      ;
-; 0.435 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[7]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.551      ;
-; 0.435 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.551      ;
-; 0.436 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.552      ;
-; 0.436 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.552      ;
-; 0.436 ; program_counter:pc_inst|debounce_timer[18] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.552      ;
-; 0.436 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.552      ;
-; 0.437 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.553      ;
-; 0.437 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.553      ;
-; 0.438 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.554      ;
-; 0.471 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.595      ;
-; 0.471 ; program_counter:pc_inst|debounce_timer[3]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.595      ;
-; 0.473 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.597      ;
-; 0.480 ; program_counter:pc_inst|counter_reg[0]     ; program_counter:pc_inst|counter_reg[0]     ; clk          ; clk         ; 0.000        ; 0.042      ; 0.604      ;
-; 0.482 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[3]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.606      ;
-; 0.482 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.598      ;
-; 0.483 ; program_counter:pc_inst|debounce_timer[2]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.607      ;
-; 0.483 ; program_counter:pc_inst|debounce_timer[17] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.599      ;
-; 0.483 ; program_counter:pc_inst|counter_reg[2]     ; program_counter:pc_inst|counter_reg[2]     ; clk          ; clk         ; 0.000        ; 0.042      ; 0.607      ;
-; 0.483 ; program_counter:pc_inst|counter_reg[5]     ; program_counter:pc_inst|counter_reg[5]     ; clk          ; clk         ; 0.000        ; 0.042      ; 0.607      ;
-; 0.484 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[4]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.608      ;
-; 0.484 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.600      ;
-; 0.484 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.600      ;
-; 0.486 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.602      ;
-; 0.489 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.605      ;
-; 0.491 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.607      ;
-; 0.494 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.610      ;
-; 0.494 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[13] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.610      ;
-; 0.495 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.611      ;
-; 0.496 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[14] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.612      ;
-; 0.496 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.612      ;
-; 0.496 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[8]  ; clk          ; clk         ; 0.000        ; 0.034      ; 0.612      ;
-; 0.496 ; program_counter:pc_inst|debounce_timer[18] ; program_counter:pc_inst|clean_enable       ; clk          ; clk         ; 0.000        ; 0.034      ; 0.612      ;
-; 0.497 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.613      ;
-; 0.498 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.614      ;
-; 0.498 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 0.000        ; 0.033      ; 0.613      ;
-; 0.499 ; program_counter:pc_inst|enable_prev        ; program_counter:pc_inst|counter_reg[0]     ; clk          ; clk         ; 0.000        ; 0.224      ; 0.805      ;
-; 0.510 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 0.000        ; 0.033      ; 0.625      ;
-; 0.531 ; program_counter:pc_inst|debounce_timer[1]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.655      ;
-; 0.542 ; program_counter:pc_inst|debounce_timer[0]  ; program_counter:pc_inst|debounce_timer[5]  ; clk          ; clk         ; 0.000        ; 0.042      ; 0.666      ;
-; 0.542 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.658      ;
-; 0.544 ; program_counter:pc_inst|debounce_timer[11] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.660      ;
-; 0.544 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.660      ;
-; 0.546 ; program_counter:pc_inst|debounce_timer[13] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.662      ;
-; 0.549 ; program_counter:pc_inst|debounce_timer[15] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.665      ;
-; 0.554 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[15] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.670      ;
-; 0.555 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[17] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.671      ;
-; 0.556 ; program_counter:pc_inst|debounce_timer[10] ; program_counter:pc_inst|debounce_timer[16] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.672      ;
-; 0.556 ; program_counter:pc_inst|debounce_timer[14] ; program_counter:pc_inst|debounce_timer[19] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.672      ;
-; 0.556 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 0.000        ; 0.033      ; 0.671      ;
-; 0.557 ; program_counter:pc_inst|debounce_timer[12] ; program_counter:pc_inst|debounce_timer[18] ; clk          ; clk         ; 0.000        ; 0.034      ; 0.673      ;
-; 0.557 ; program_counter:pc_inst|debounce_timer[7]  ; program_counter:pc_inst|debounce_timer[10] ; clk          ; clk         ; 0.000        ; 0.033      ; 0.672      ;
-; 0.558 ; program_counter:pc_inst|debounce_timer[6]  ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.033      ; 0.673      ;
-; 0.568 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[11] ; clk          ; clk         ; 0.000        ; 0.033      ; 0.683      ;
-; 0.568 ; program_counter:pc_inst|debounce_timer[19] ; program_counter:pc_inst|clean_enable       ; clk          ; clk         ; 0.000        ; 0.034      ; 0.684      ;
-; 0.570 ; program_counter:pc_inst|debounce_timer[8]  ; program_counter:pc_inst|debounce_timer[12] ; clk          ; clk         ; 0.000        ; 0.033      ; 0.685      ;
-; 0.571 ; program_counter:pc_inst|counter_reg[0]     ; program_counter:pc_inst|counter_reg[1]     ; clk          ; clk         ; 0.000        ; 0.042      ; 0.695      ;
-; 0.571 ; program_counter:pc_inst|counter_reg[5]     ; program_counter:pc_inst|counter_reg[6]     ; clk          ; clk         ; 0.000        ; 0.042      ; 0.695      ;
-; 0.573 ; program_counter:pc_inst|counter_reg[3]     ; program_counter:pc_inst|counter_reg[4]     ; clk          ; clk         ; 0.000        ; 0.042      ; 0.697      ;
-; 0.578 ; program_counter:pc_inst|debounce_timer[16] ; program_counter:pc_inst|clean_enable       ; clk          ; clk         ; 0.000        ; 0.034      ; 0.694      ;
-; 0.582 ; program_counter:pc_inst|counter_reg[2]     ; program_counter:pc_inst|counter_reg[3]     ; clk          ; clk         ; 0.000        ; 0.042      ; 0.706      ;
-; 0.583 ; program_counter:pc_inst|counter_reg[4]     ; program_counter:pc_inst|counter_reg[6]     ; clk          ; clk         ; 0.000        ; 0.042      ; 0.707      ;
-+-------+--------------------------------------------+--------------------------------------------+--------------+-------------+--------------+------------+------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV -40C Model Hold: 'clk'                                                                                                                            ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.189 ; program_counter:pc_inst|counter_reg[7] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.312      ;
+; 0.264 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.558      ;
+; 0.266 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.560      ;
+; 0.282 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.405      ;
+; 0.282 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.405      ;
+; 0.282 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.405      ;
+; 0.283 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.406      ;
+; 0.283 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.406      ;
+; 0.283 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.406      ;
+; 0.293 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 0.000        ; 0.035      ; 0.410      ;
+; 0.324 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.618      ;
+; 0.326 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.620      ;
+; 0.384 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.678      ;
+; 0.386 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.680      ;
+; 0.414 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[1] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.708      ;
+; 0.426 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.549      ;
+; 0.426 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.549      ;
+; 0.426 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.549      ;
+; 0.435 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.558      ;
+; 0.436 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.559      ;
+; 0.436 ; program_counter:pc_inst|counter_reg[6] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.559      ;
+; 0.437 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.560      ;
+; 0.438 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.561      ;
+; 0.438 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[2] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.732      ;
+; 0.444 ; program_counter:pc_inst|counter_reg[0] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.738      ;
+; 0.458 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[0] ; clk          ; clk         ; 0.000        ; 0.035      ; 0.575      ;
+; 0.474 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.768      ;
+; 0.484 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[3] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.607      ;
+; 0.484 ; program_counter:pc_inst|counter_reg[5] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.607      ;
+; 0.484 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.607      ;
+; 0.486 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.609      ;
+; 0.486 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.609      ;
+; 0.495 ; program_counter:pc_inst|counter_reg[4] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.618      ;
+; 0.496 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.619      ;
+; 0.498 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.621      ;
+; 0.498 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[4] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.792      ;
+; 0.534 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.828      ;
+; 0.544 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[5] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.667      ;
+; 0.544 ; program_counter:pc_inst|counter_reg[3] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.667      ;
+; 0.546 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.669      ;
+; 0.556 ; program_counter:pc_inst|counter_reg[2] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.679      ;
+; 0.558 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[6] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.852      ;
+; 0.594 ; program_counter:pc_inst|prev           ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.212      ; 0.888      ;
+; 0.604 ; program_counter:pc_inst|counter_reg[1] ; program_counter:pc_inst|counter_reg[7] ; clk          ; clk         ; 0.000        ; 0.041      ; 0.727      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
 ------------------------------------------------
@@ -926,16 +590,16 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+-------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                           ;
-+------------------+---------+-------+----------+---------+---------------------+
-; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------+---------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -3.008  ; 0.180 ; N/A      ; N/A     ; -3.000              ;
-;  clk             ; -3.008  ; 0.180 ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS  ; -70.946 ; 0.0   ; 0.0      ; 0.0     ; -43.125             ;
-;  clk             ; -70.946 ; 0.000 ; N/A      ; N/A     ; -43.125             ;
-+------------------+---------+-------+----------+---------+---------------------+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+--------+-------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -1.144 ; 0.189 ; N/A      ; N/A     ; -3.000              ;
+;  clk             ; -1.144 ; 0.189 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -7.252 ; 0.0   ; 0.0      ; 0.0     ; -15.142             ;
+;  clk             ; -7.252 ; 0.000 ; N/A      ; N/A     ; -15.142             ;
++------------------+--------+-------+----------+---------+---------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -995,10 +659,10 @@ No synchronizer chains to report.
 ; bit_bus[6]              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; bit_bus[7]              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; Counter_Out             ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
-; Counter_Clear           ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
-; Counter_In              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; clk                     ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; Counter_Enable          ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; Counter_Clear           ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; Counter_In              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; ~ALTERA_ASDO_DATA1~     ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; ~ALTERA_FLASH_nCE_nCSO~ ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; ~ALTERA_DATA0~          ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
@@ -1010,9 +674,9 @@ No synchronizer chains to report.
 +---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 ; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
 +---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
-; reg_bus[0]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 6.31e-09 V                   ; 3.14 V              ; -0.145 V            ; 0.247 V                              ; 0.222 V                              ; 4.87e-10 s                  ; 4.27e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 6.31e-09 V                  ; 3.14 V             ; -0.145 V           ; 0.247 V                             ; 0.222 V                             ; 4.87e-10 s                 ; 4.27e-10 s                 ; Yes                       ; No                        ;
+; reg_bus[0]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 4.49e-09 V                   ; 3.13 V              ; -0.0913 V           ; 0.283 V                              ; 0.166 V                              ; 7.04e-10 s                  ; 6.18e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 4.49e-09 V                  ; 3.13 V             ; -0.0913 V          ; 0.283 V                             ; 0.166 V                             ; 7.04e-10 s                 ; 6.18e-10 s                 ; Yes                       ; No                        ;
 ; reg_bus[1]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 6.31e-09 V                   ; 3.14 V              ; -0.145 V            ; 0.247 V                              ; 0.222 V                              ; 4.87e-10 s                  ; 4.27e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 6.31e-09 V                  ; 3.14 V             ; -0.145 V           ; 0.247 V                             ; 0.222 V                             ; 4.87e-10 s                 ; 4.27e-10 s                 ; Yes                       ; No                        ;
-; reg_bus[2]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 6.31e-09 V                   ; 3.14 V              ; -0.145 V            ; 0.247 V                              ; 0.222 V                              ; 4.87e-10 s                  ; 4.27e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 6.31e-09 V                  ; 3.14 V             ; -0.145 V           ; 0.247 V                             ; 0.222 V                             ; 4.87e-10 s                 ; 4.27e-10 s                 ; Yes                       ; No                        ;
+; reg_bus[2]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 4.49e-09 V                   ; 3.13 V              ; -0.0913 V           ; 0.283 V                              ; 0.166 V                              ; 7.04e-10 s                  ; 6.18e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 4.49e-09 V                  ; 3.13 V             ; -0.0913 V          ; 0.283 V                             ; 0.166 V                             ; 7.04e-10 s                 ; 6.18e-10 s                 ; Yes                       ; No                        ;
 ; reg_bus[3]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 6.31e-09 V                   ; 3.14 V              ; -0.145 V            ; 0.247 V                              ; 0.222 V                              ; 4.87e-10 s                  ; 4.27e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 6.31e-09 V                  ; 3.14 V             ; -0.145 V           ; 0.247 V                             ; 0.222 V                             ; 4.87e-10 s                 ; 4.27e-10 s                 ; Yes                       ; No                        ;
 ; reg_bus[4]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 6.31e-09 V                   ; 3.14 V              ; -0.145 V            ; 0.247 V                              ; 0.222 V                              ; 4.87e-10 s                  ; 4.27e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 6.31e-09 V                  ; 3.14 V             ; -0.145 V           ; 0.247 V                             ; 0.222 V                             ; 4.87e-10 s                 ; 4.27e-10 s                 ; Yes                       ; No                        ;
 ; reg_bus[5]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 6.31e-09 V                   ; 3.14 V              ; -0.145 V            ; 0.247 V                              ; 0.222 V                              ; 4.87e-10 s                  ; 4.27e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 6.31e-09 V                  ; 3.14 V             ; -0.145 V           ; 0.247 V                             ; 0.222 V                             ; 4.87e-10 s                 ; 4.27e-10 s                 ; Yes                       ; No                        ;
@@ -1036,9 +700,9 @@ No synchronizer chains to report.
 +---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 ; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
 +---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
-; reg_bus[0]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.85e-06 V                   ; 3.11 V              ; -0.0551 V           ; 0.242 V                              ; 0.181 V                              ; 6.97e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.85e-06 V                  ; 3.11 V             ; -0.0551 V          ; 0.242 V                             ; 0.181 V                             ; 6.97e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
+; reg_bus[0]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.58e-06 V                   ; 3.11 V              ; -0.0481 V           ; 0.185 V                              ; 0.219 V                              ; 1.06e-09 s                  ; 8.59e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.58e-06 V                  ; 3.11 V             ; -0.0481 V          ; 0.185 V                             ; 0.219 V                             ; 1.06e-09 s                 ; 8.59e-10 s                 ; No                        ; No                        ;
 ; reg_bus[1]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.85e-06 V                   ; 3.11 V              ; -0.0551 V           ; 0.242 V                              ; 0.181 V                              ; 6.97e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.85e-06 V                  ; 3.11 V             ; -0.0551 V          ; 0.242 V                             ; 0.181 V                             ; 6.97e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
-; reg_bus[2]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.85e-06 V                   ; 3.11 V              ; -0.0551 V           ; 0.242 V                              ; 0.181 V                              ; 6.97e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.85e-06 V                  ; 3.11 V             ; -0.0551 V          ; 0.242 V                             ; 0.181 V                             ; 6.97e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
+; reg_bus[2]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.58e-06 V                   ; 3.11 V              ; -0.0481 V           ; 0.185 V                              ; 0.219 V                              ; 1.06e-09 s                  ; 8.59e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.58e-06 V                  ; 3.11 V             ; -0.0481 V          ; 0.185 V                             ; 0.219 V                             ; 1.06e-09 s                 ; 8.59e-10 s                 ; No                        ; No                        ;
 ; reg_bus[3]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.85e-06 V                   ; 3.11 V              ; -0.0551 V           ; 0.242 V                              ; 0.181 V                              ; 6.97e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.85e-06 V                  ; 3.11 V             ; -0.0551 V          ; 0.242 V                             ; 0.181 V                             ; 6.97e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
 ; reg_bus[4]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.85e-06 V                   ; 3.11 V              ; -0.0551 V           ; 0.242 V                              ; 0.181 V                              ; 6.97e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.85e-06 V                  ; 3.11 V             ; -0.0551 V          ; 0.242 V                             ; 0.181 V                             ; 6.97e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
 ; reg_bus[5]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.85e-06 V                   ; 3.11 V              ; -0.0551 V           ; 0.242 V                              ; 0.181 V                              ; 6.97e-10 s                  ; 6.4e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.85e-06 V                  ; 3.11 V             ; -0.0551 V          ; 0.242 V                             ; 0.181 V                             ; 6.97e-10 s                 ; 6.4e-10 s                  ; Yes                       ; No                        ;
@@ -1062,9 +726,9 @@ No synchronizer chains to report.
 +---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 ; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
 +---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
-; reg_bus[0]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 2.74e-08 V                   ; 3.6 V               ; -0.154 V            ; 0.269 V                              ; 0.211 V                              ; 4.47e-10 s                  ; 4.04e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 2.74e-08 V                  ; 3.6 V              ; -0.154 V           ; 0.269 V                             ; 0.211 V                             ; 4.47e-10 s                 ; 4.04e-10 s                 ; No                        ; No                        ;
+; reg_bus[0]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.95e-08 V                   ; 3.59 V              ; -0.0938 V           ; 0.27 V                               ; 0.284 V                              ; 6.63e-10 s                  ; 4.61e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.95e-08 V                  ; 3.59 V             ; -0.0938 V          ; 0.27 V                              ; 0.284 V                             ; 6.63e-10 s                 ; 4.61e-10 s                 ; No                        ; Yes                       ;
 ; reg_bus[1]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 2.74e-08 V                   ; 3.6 V               ; -0.154 V            ; 0.269 V                              ; 0.211 V                              ; 4.47e-10 s                  ; 4.04e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 2.74e-08 V                  ; 3.6 V              ; -0.154 V           ; 0.269 V                             ; 0.211 V                             ; 4.47e-10 s                 ; 4.04e-10 s                 ; No                        ; No                        ;
-; reg_bus[2]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 2.74e-08 V                   ; 3.6 V               ; -0.154 V            ; 0.269 V                              ; 0.211 V                              ; 4.47e-10 s                  ; 4.04e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 2.74e-08 V                  ; 3.6 V              ; -0.154 V           ; 0.269 V                             ; 0.211 V                             ; 4.47e-10 s                 ; 4.04e-10 s                 ; No                        ; No                        ;
+; reg_bus[2]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.95e-08 V                   ; 3.59 V              ; -0.0938 V           ; 0.27 V                               ; 0.284 V                              ; 6.63e-10 s                  ; 4.61e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.95e-08 V                  ; 3.59 V             ; -0.0938 V          ; 0.27 V                              ; 0.284 V                             ; 6.63e-10 s                 ; 4.61e-10 s                 ; No                        ; Yes                       ;
 ; reg_bus[3]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 2.74e-08 V                   ; 3.6 V               ; -0.154 V            ; 0.269 V                              ; 0.211 V                              ; 4.47e-10 s                  ; 4.04e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 2.74e-08 V                  ; 3.6 V              ; -0.154 V           ; 0.269 V                             ; 0.211 V                             ; 4.47e-10 s                 ; 4.04e-10 s                 ; No                        ; No                        ;
 ; reg_bus[4]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 2.74e-08 V                   ; 3.6 V               ; -0.154 V            ; 0.269 V                              ; 0.211 V                              ; 4.47e-10 s                  ; 4.04e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 2.74e-08 V                  ; 3.6 V              ; -0.154 V           ; 0.269 V                             ; 0.211 V                             ; 4.47e-10 s                 ; 4.04e-10 s                 ; No                        ; No                        ;
 ; reg_bus[5]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 2.74e-08 V                   ; 3.6 V               ; -0.154 V            ; 0.269 V                              ; 0.211 V                              ; 4.47e-10 s                  ; 4.04e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 2.74e-08 V                  ; 3.6 V              ; -0.154 V           ; 0.269 V                             ; 0.211 V                             ; 4.47e-10 s                 ; 4.04e-10 s                 ; No                        ; No                        ;
@@ -1088,7 +752,7 @@ No synchronizer chains to report.
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; clk        ; clk      ; 599      ; 0        ; 0        ; 0        ;
+; clk        ; clk      ; 44       ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1098,7 +762,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; clk        ; clk      ; 599      ; 0        ; 0        ; 0        ;
+; clk        ; clk      ; 44       ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1123,7 +787,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 12    ; 12   ;
-; Unconstrained Input Port Paths  ; 53    ; 53   ;
+; Unconstrained Input Port Paths  ; 41    ; 41   ;
 ; Unconstrained Output Ports      ; 8     ; 8    ;
 ; Unconstrained Output Port Paths ; 16    ; 16   ;
 +---------------------------------+-------+------+
@@ -1216,7 +880,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Tue Mar 10 09:02:03 2026
+    Info: Processing started: Thu Mar 12 08:56:03 2026
 Info: Command: quartus_sta computer_fpga -c computer_fpga
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1233,64 +897,64 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 100C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -3.008
+Info (332146): Worst-case setup slack is -1.144
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.008             -70.946 clk 
-Info (332146): Worst-case hold slack is 0.419
+    Info (332119):    -1.144              -7.252 clk 
+Info (332146): Worst-case hold slack is 0.441
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.419               0.000 clk 
+    Info (332119):     0.441               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -41.550 clk 
+    Info (332119):    -3.000             -14.565 clk 
 Info: Analyzing Slow 1200mV -40C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -2.554
+Info (332146): Worst-case setup slack is -0.835
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.554             -59.518 clk 
-Info (332146): Worst-case hold slack is 0.345
+    Info (332119):    -0.835              -5.114 clk 
+Info (332146): Worst-case hold slack is 0.384
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.345               0.000 clk 
+    Info (332119):     0.384               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -41.550 clk 
+    Info (332119):    -3.000             -14.565 clk 
 Info: Analyzing Fast 1200mV -40C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Critical Warning (332148): Timing requirements not met
-    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -0.809
+Info (332146): Worst-case setup slack is 0.021
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.809             -15.830 clk 
-Info (332146): Worst-case hold slack is 0.180
+    Info (332119):     0.021               0.000 clk 
+Info (332146): Worst-case hold slack is 0.189
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.180               0.000 clk 
+    Info (332119):     0.189               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -43.125 clk 
+    Info (332119):    -3.000             -15.142 clk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4780 megabytes
-    Info: Processing ended: Tue Mar 10 09:02:05 2026
+    Info: Peak virtual memory: 4778 megabytes
+    Info: Processing ended: Thu Mar 12 08:56:05 2026
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 

@@ -1,5 +1,5 @@
 Flow report for computer_fpga
-Tue Mar 10 09:02:05 2026
+Thu Mar 12 08:56:05 2026
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -41,17 +41,17 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Tue Mar 10 09:02:02 2026           ;
+; Flow Status                        ; Successful - Thu Mar 12 08:56:02 2026           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; computer_fpga                                   ;
 ; Top-level Entity Name              ; computer_fpga                                   ;
 ; Family                             ; Cyclone 10 LP                                   ;
 ; Device                             ; 10CL025YU256I7G                                 ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 45 / 24,624 ( < 1 % )                           ;
-;     Total combinational functions  ; 44 / 24,624 ( < 1 % )                           ;
-;     Dedicated logic registers      ; 30 / 24,624 ( < 1 % )                           ;
-; Total registers                    ; 30                                              ;
+; Total logic elements               ; 10 / 24,624 ( < 1 % )                           ;
+;     Total combinational functions  ; 9 / 24,624 ( < 1 % )                            ;
+;     Dedicated logic registers      ; 9 / 24,624 ( < 1 % )                            ;
+; Total registers                    ; 9                                               ;
 ; Total pins                         ; 30 / 151 ( 20 % )                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                             ;
@@ -65,7 +65,7 @@ on the Quartus Prime software download page.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/10/2026 09:01:41 ;
+; Start date & time ; 03/12/2026 08:55:46 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; computer_fpga       ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ on the Quartus Prime software download page.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 2200303521616.177315130112968          ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 2200303521616.177332374613848          ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -98,11 +98,11 @@ on the Quartus Prime software download page.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:12     ; 1.0                     ; 4750 MB             ; 00:00:30                           ;
-; Fitter               ; 00:00:06     ; 1.0                     ; 5446 MB             ; 00:00:07                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4707 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4780 MB             ; 00:00:02                           ;
-; Total                ; 00:00:22     ; --                      ; --                  ; 00:00:40                           ;
+; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4754 MB             ; 00:00:23                           ;
+; Fitter               ; 00:00:04     ; 1.0                     ; 5446 MB             ; 00:00:06                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4711 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4778 MB             ; 00:00:01                           ;
+; Total                ; 00:00:17     ; --                      ; --                  ; 00:00:31                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

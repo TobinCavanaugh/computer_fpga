@@ -40,19 +40,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "Counter_Clear",
-					"strict" : false
-				},
-				{
-					"name" : "Counter_In",
-					"strict" : false
-				},
-				{
 					"name" : "clk",
 					"strict" : false
 				},
 				{
 					"name" : "Counter_Enable",
+					"strict" : false
+				},
+				{
+					"name" : "Counter_Clear",
+					"strict" : false
+				},
+				{
+					"name" : "Counter_In",
 					"strict" : false
 				}
 			]
