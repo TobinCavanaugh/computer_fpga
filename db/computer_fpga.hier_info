@@ -1,5 +1,5 @@
 |computer_fpga
-clk => clk.IN1
+clk => clk.IN2
 bit_bus[0] <> program_counter:pc_inst.bit_bus
 bit_bus[1] <> program_counter:pc_inst.bit_bus
 bit_bus[2] <> program_counter:pc_inst.bit_bus
@@ -13,22 +13,22 @@ Counter_Out => Counter_Out.IN1
 Counter_In => _.IN1
 Counter_Clear => _.IN1
 Computer_Reset => ~NO_FANOUT~
-reg_bus[0] <> <UNC>
-reg_bus[1] <> <UNC>
-reg_bus[2] <> <UNC>
-reg_bus[3] <> <UNC>
-reg_bus[4] <> <UNC>
-reg_bus[5] <> <UNC>
-reg_bus[6] <> <UNC>
-reg_bus[7] <> <UNC>
-reg_A_in => ~NO_FANOUT~
-reg_B_in => ~NO_FANOUT~
-reg_A_out => ~NO_FANOUT~
-reg_A_clr => ~NO_FANOUT~
-reg_B_clr => ~NO_FANOUT~
-regs_reset => ~NO_FANOUT~
-alu_out => ~NO_FANOUT~
-alu_sub => ~NO_FANOUT~
+reg_bus[0] <> cpu_alu:alu_inst.reg_bus
+reg_bus[1] <> cpu_alu:alu_inst.reg_bus
+reg_bus[2] <> cpu_alu:alu_inst.reg_bus
+reg_bus[3] <> cpu_alu:alu_inst.reg_bus
+reg_bus[4] <> cpu_alu:alu_inst.reg_bus
+reg_bus[5] <> cpu_alu:alu_inst.reg_bus
+reg_bus[6] <> cpu_alu:alu_inst.reg_bus
+reg_bus[7] <> cpu_alu:alu_inst.reg_bus
+reg_A_in => reg_A_in.IN1
+reg_B_in => reg_B_in.IN1
+reg_A_out => reg_A_out.IN1
+reg_A_clr => reg_A_clr.IN1
+reg_B_clr => reg_B_clr.IN1
+regs_reset => regs_reset.IN1
+alu_out => alu_out.IN1
+alu_sub => alu_sub.IN1
 
 
 |computer_fpga|program_counter:pc_inst
@@ -40,7 +40,6 @@ bit_bus[4] <> bit_bus[4]
 bit_bus[5] <> bit_bus[5]
 bit_bus[6] <> bit_bus[6]
 bit_bus[7] <> bit_bus[7]
-clk => prev.CLK
 clk => counter_reg[0].CLK
 clk => counter_reg[1].CLK
 clk => counter_reg[2].CLK
@@ -49,8 +48,14 @@ clk => counter_reg[4].CLK
 clk => counter_reg[5].CLK
 clk => counter_reg[6].CLK
 clk => counter_reg[7].CLK
-Counter_Enable => always0.IN1
-Counter_Enable => prev.DATAIN
+Counter_Enable => counter_reg.OUTPUTSELECT
+Counter_Enable => counter_reg.OUTPUTSELECT
+Counter_Enable => counter_reg.OUTPUTSELECT
+Counter_Enable => counter_reg.OUTPUTSELECT
+Counter_Enable => counter_reg.OUTPUTSELECT
+Counter_Enable => counter_reg.OUTPUTSELECT
+Counter_Enable => counter_reg.OUTPUTSELECT
+Counter_Enable => counter_reg.OUTPUTSELECT
 Counter_Out => bit_bus[0].OE
 Counter_Out => bit_bus[1].OE
 Counter_Out => bit_bus[2].OE
@@ -67,13 +72,51 @@ Counter_In => counter_reg.OUTPUTSELECT
 Counter_In => counter_reg.OUTPUTSELECT
 Counter_In => counter_reg.OUTPUTSELECT
 Counter_In => counter_reg.OUTPUTSELECT
-Counter_Clear => counter_reg.OUTPUTSELECT
-Counter_Clear => counter_reg.OUTPUTSELECT
-Counter_Clear => counter_reg.OUTPUTSELECT
-Counter_Clear => counter_reg.OUTPUTSELECT
-Counter_Clear => counter_reg.OUTPUTSELECT
-Counter_Clear => counter_reg.OUTPUTSELECT
-Counter_Clear => counter_reg.OUTPUTSELECT
-Counter_Clear => counter_reg.OUTPUTSELECT
+Counter_Clear => always0.IN0
+Counter_Reset => always0.IN1
+
+
+|computer_fpga|cpu_alu:alu_inst
+clk => ~NO_FANOUT~
+reg_bus[0] <> <UNC>
+reg_bus[1] <> <UNC>
+reg_bus[2] <> <UNC>
+reg_bus[3] <> <UNC>
+reg_bus[4] <> <UNC>
+reg_bus[5] <> <UNC>
+reg_bus[6] <> <UNC>
+reg_bus[7] <> <UNC>
+reg_A_in => ~NO_FANOUT~
+reg_B_in => ~NO_FANOUT~
+reg_A_out => ~NO_FANOUT~
+reg_A_clr => ~NO_FANOUT~
+reg_B_clr => ~NO_FANOUT~
+regs_reset => ~NO_FANOUT~
+alu_out => ~NO_FANOUT~
+alu_sub => ~NO_FANOUT~
+reg_A[0] <= <GND>
+reg_A[1] <= <GND>
+reg_A[2] <= <GND>
+reg_A[3] <= <GND>
+reg_A[4] <= <GND>
+reg_A[5] <= <GND>
+reg_A[6] <= <GND>
+reg_A[7] <= <GND>
+reg_B[0] <= <GND>
+reg_B[1] <= <GND>
+reg_B[2] <= <GND>
+reg_B[3] <= <GND>
+reg_B[4] <= <GND>
+reg_B[5] <= <GND>
+reg_B[6] <= <GND>
+reg_B[7] <= <GND>
+alu_result[0] <= <GND>
+alu_result[1] <= <GND>
+alu_result[2] <= <GND>
+alu_result[3] <= <GND>
+alu_result[4] <= <GND>
+alu_result[5] <= <GND>
+alu_result[6] <= <GND>
+alu_result[7] <= <GND>
 
 

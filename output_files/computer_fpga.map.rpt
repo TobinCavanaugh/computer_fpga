@@ -1,5 +1,5 @@
 Analysis & Synthesis report for computer_fpga
-Thu Mar 12 08:55:55 2026
+Thu Mar 19 08:18:37 2026
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -15,10 +15,12 @@ Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
   9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
- 13. Analysis & Synthesis Suppressed Messages
+ 10. Port Connectivity Checks: "cpu_alu:alu_inst"
+ 11. Port Connectivity Checks: "program_counter:pc_inst"
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
+ 15. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -45,15 +47,15 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Mar 12 08:55:55 2026           ;
+; Analysis & Synthesis Status        ; Successful - Thu Mar 19 08:18:37 2026           ;
 ; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
 ; Revision Name                      ; computer_fpga                                   ;
 ; Top-level Entity Name              ; computer_fpga                                   ;
 ; Family                             ; Cyclone 10 LP                                   ;
-; Total logic elements               ; 10                                              ;
-;     Total combinational functions  ; 9                                               ;
-;     Dedicated logic registers      ; 9                                               ;
-; Total registers                    ; 9                                               ;
+; Total logic elements               ; 8                                               ;
+;     Total combinational functions  ; 8                                               ;
+;     Dedicated logic registers      ; 8                                               ;
+; Total registers                    ; 8                                               ;
 ; Total pins                         ; 30                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -172,39 +174,40 @@ on the Quartus Prime software download page.
 +----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+---------+
 ; program_counter.v                ; yes             ; User Verilog HDL File  ; C:/Users/tobin/AppData/Local/quartus/computer_fpga/program_counter.v ;         ;
 ; computer_fpga.v                  ; yes             ; User Verilog HDL File  ; C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v   ;         ;
+; cpu_alu.v                        ; yes             ; User Verilog HDL File  ; C:/Users/tobin/AppData/Local/quartus/computer_fpga/cpu_alu.v         ;         ;
 +----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 10        ;
-;                                             ;           ;
-; Total combinational functions               ; 9         ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 0         ;
-;     -- 3 input functions                    ; 1         ;
-;     -- <=2 input functions                  ; 8         ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 2         ;
-;     -- arithmetic mode                      ; 7         ;
-;                                             ;           ;
-; Total registers                             ; 9         ;
-;     -- Dedicated logic registers            ; 9         ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 30        ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 9         ;
-; Total fan-out                               ; 122       ;
-; Average fan-out                             ; 1.30      ;
-+---------------------------------------------+-----------+
++-----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                     ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimated Total logic elements              ; 8                 ;
+;                                             ;                   ;
+; Total combinational functions               ; 8                 ;
+; Logic element usage by number of LUT inputs ;                   ;
+;     -- 4 input functions                    ; 0                 ;
+;     -- 3 input functions                    ; 1                 ;
+;     -- <=2 input functions                  ; 7                 ;
+;                                             ;                   ;
+; Logic elements by mode                      ;                   ;
+;     -- normal mode                          ; 1                 ;
+;     -- arithmetic mode                      ; 7                 ;
+;                                             ;                   ;
+; Total registers                             ; 8                 ;
+;     -- Dedicated logic registers            ; 8                 ;
+;     -- I/O registers                        ; 0                 ;
+;                                             ;                   ;
+; I/O pins                                    ; 30                ;
+;                                             ;                   ;
+; Embedded Multiplier 9-bit elements          ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; Counter_Out~input ;
+; Maximum fan-out                             ; 8                 ;
+; Total fan-out                               ; 118               ;
+; Average fan-out                             ; 1.28              ;
++---------------------------------------------+-------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -212,8 +215,8 @@ on the Quartus Prime software download page.
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                    ; Entity Name     ; Library Name ;
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------+-----------------+--------------+
-; |computer_fpga               ; 9 (0)               ; 9 (0)                     ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |computer_fpga                         ; computer_fpga   ; work         ;
-;    |program_counter:pc_inst| ; 9 (9)               ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |computer_fpga|program_counter:pc_inst ; program_counter ; work         ;
+; |computer_fpga               ; 8 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |computer_fpga                         ; computer_fpga   ; work         ;
+;    |program_counter:pc_inst| ; 8 (8)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |computer_fpga|program_counter:pc_inst ; program_counter ; work         ;
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -223,10 +226,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 9     ;
-; Number of registers using Synchronous Clear  ; 8     ;
+; Total registers                              ; 8     ;
+; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 8     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 8     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
@@ -238,8 +241,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |computer_fpga|program_counter:pc_inst|counter_reg[0] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |computer_fpga|program_counter:pc_inst|counter_reg[0] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu_alu:alu_inst"                                                                                              ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                                                  ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; reg_A      ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; reg_B      ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; alu_result ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "program_counter:pc_inst"                                                                                                                             ;
++---------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type  ; Severity ; Details                                                                                                                                      ;
++---------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Counter_Reset ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++---------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -248,20 +271,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 30                          ;
-; cycloneiii_ff         ; 9                           ;
-;     SCLR SLD          ; 8                           ;
-;     plain             ; 1                           ;
+; cycloneiii_ff         ; 8                           ;
+;     CLR SLD           ; 8                           ;
 ; cycloneiii_io_obuf    ; 16                          ;
-; cycloneiii_lcell_comb ; 9                           ;
+; cycloneiii_lcell_comb ; 8                           ;
 ;     arith             ; 7                           ;
 ;         2 data inputs ; 6                           ;
 ;         3 data inputs ; 1                           ;
-;     normal            ; 2                           ;
+;     normal            ; 1                           ;
 ;         1 data inputs ; 1                           ;
-;         2 data inputs ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.70                        ;
-; Average LUT depth     ; 1.05                        ;
+; Max LUT depth         ; 1.70                        ;
+; Average LUT depth     ; 0.68                        ;
 +-----------------------+-----------------------------+
 
 
@@ -280,12 +301,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Thu Mar 12 08:55:45 2026
+    Info: Processing started: Thu Mar 19 08:18:29 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off computer_fpga -c computer_fpga
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file program_counter.v
     Info (12023): Found entity 1: program_counter File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/program_counter.v Line: 1
+Warning (10275): Verilog HDL Module Instantiation warning at computer_fpga.v(55): ignored dangling comma in List of Port Connections File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 55
 Info (12021): Found 1 design units, including 1 entities, in source file computer_fpga.v
     Info (12023): Found entity 1: computer_fpga File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file cpu_alu.v
@@ -295,7 +317,14 @@ Warning (10036): Verilog HDL or VHDL warning at computer_fpga.v(31): object "reg
 Warning (10036): Verilog HDL or VHDL warning at computer_fpga.v(32): object "reg_B" assigned a value but never read File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 32
 Warning (10036): Verilog HDL or VHDL warning at computer_fpga.v(33): object "alu_result" assigned a value but never read File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 33
 Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:pc_inst" File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 42
-Warning (10230): Verilog HDL assignment warning at program_counter.v(25): truncated value with size 32 to match size of target (8) File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/program_counter.v Line: 25
+Warning (10230): Verilog HDL assignment warning at program_counter.v(29): truncated value with size 32 to match size of target (8) File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/program_counter.v Line: 29
+Warning (10230): Verilog HDL assignment warning at program_counter.v(35): truncated value with size 16 to match size of target (8) File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/program_counter.v Line: 35
+Info (12128): Elaborating entity "cpu_alu" for hierarchy "cpu_alu:alu_inst" File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 55
+Warning (10034): Output port "reg_A" at cpu_alu.v(19) has no driver File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/cpu_alu.v Line: 19
+Warning (10034): Output port "reg_B" at cpu_alu.v(20) has no driver File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/cpu_alu.v Line: 20
+Warning (10034): Output port "alu_result" at cpu_alu.v(22) has no driver File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/cpu_alu.v Line: 22
+Warning (12158): Entity "cpu_alu" contains only dangling pins File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 55
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "reg_bus[0]" has no driver File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 15
     Warning (13040): bidirectional pin "reg_bus[1]" has no driver File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 15
@@ -305,7 +334,6 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "reg_bus[5]" has no driver File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 15
     Warning (13040): bidirectional pin "reg_bus[6]" has no driver File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 15
     Warning (13040): bidirectional pin "reg_bus[7]" has no driver File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 15
-Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/tobin/AppData/Local/quartus/computer_fpga/output_files/computer_fpga.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -319,16 +347,16 @@ Warning (21074): Design contains 9 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "regs_reset" File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 25
     Warning (15610): No output dependent on input pin "alu_out" File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 27
     Warning (15610): No output dependent on input pin "alu_sub" File: C:/Users/tobin/AppData/Local/quartus/computer_fpga/computer_fpga.v Line: 29
-Info (21057): Implemented 40 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 38 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 14 input pins
     Info (21059): Implemented 0 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 10 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
-    Info: Peak virtual memory: 4754 megabytes
-    Info: Processing ended: Thu Mar 12 08:55:55 2026
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:23
+    Info (21061): Implemented 8 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 31 warnings
+    Info: Peak virtual memory: 4749 megabytes
+    Info: Processing ended: Thu Mar 19 08:18:37 2026
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:21
 
 
 +------------------------------------------+

@@ -4,30 +4,33 @@ module program_counter (
     input wire       Counter_Enable,  // Level-sensitive increment enable
     input wire       Counter_Out,     // Control signal to output to bus
     input wire       Counter_In,      // Control signal to load from bus
-    input wire       Counter_Clear    // Synchronous reset
+    input wire       Counter_Clear,   // 
+	 input wire 		Counter_Reset	  //
 );
 
 	// REWORK 
 
-  // Initializing to 8'h00 is standard; 8'h81 if your specific architecture starts there
   reg [7:0] counter_reg = 8'h00;
 
   // Drive the bus only when Counter_Out is active
-  assign bit_bus = (Counter_Out) ? counter_reg : 8'bz;
+  // assign bit_bus = (Counter_Out) ? counter_reg : 8'bz;
 
-  reg prev = 1'b0;
+  //reg prev = 1'b0;
 
-  always @(posedge clk) begin
-    if (Counter_Clear) begin
-      // Synchronous Reset: Reset to 0 immediately on next clock edge
+  always @(posedge clk or posedge Counter_Clear or posedge Counter_Reset) begin
+    if (Counter_Clear || Counter_Reset) begin
       counter_reg <= 8'b0;
     end else if (Counter_In) begin
       counter_reg <= bit_bus;
-    end else if (prev == 0 && Counter_Enable == 1) begin
+		
+    //end else if (prev == 0 && Counter_Enable == 1) begin
+	 end else if (Counter_Enable) begin
       counter_reg <= counter_reg + 1;
     end
 
-    prev <= Counter_Enable;
+    //prev <= Counter_Enable;
   end
-
+  
+	assign bit_bus = Counter_Out ? counter_reg : 8'bz;
+ 
 endmodule

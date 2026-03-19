@@ -34,12 +34,24 @@ reg [7:0] alu_result = 8'b0;
 
 program_counter pc_inst (
 	.bit_bus(bit_bus),
-	.clk(clk),
+	.clk(clk), // TODO USE PC WIRE
    .Counter_Enable(Counter_Enable),
    .Counter_Out(Counter_Out),
    .Counter_In(~Counter_In),
    .Counter_Clear(~Counter_Clear)
 );
 
+cpu_alu alu_inst (
+	.clk(clk), // TODO USE PC WIRE
+	.reg_bus(reg_bus),
+	.reg_A_in(reg_A_in),
+	.reg_B_in(reg_B_in),
+	.reg_A_out(reg_A_out),
+	.reg_A_clr(reg_A_clr),
+	.reg_B_clr(reg_B_clr),
+	.regs_reset(regs_reset),
+	.alu_out(alu_out),
+	.alu_sub(alu_sub),
+);
 
 endmodule
