@@ -4,35 +4,27 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "bit_bus[0]",
+					"name" : "heartbeat",
 					"strict" : false
 				},
 				{
-					"name" : "bit_bus[1]",
+					"name" : "pc_bus[0]",
 					"strict" : false
 				},
 				{
-					"name" : "bit_bus[2]",
+					"name" : "pc_bus[1]",
 					"strict" : false
 				},
 				{
-					"name" : "bit_bus[3]",
+					"name" : "pc_bus[2]",
 					"strict" : false
 				},
 				{
-					"name" : "bit_bus[4]",
+					"name" : "pc_bus[3]",
 					"strict" : false
 				},
 				{
-					"name" : "bit_bus[5]",
-					"strict" : false
-				},
-				{
-					"name" : "bit_bus[6]",
-					"strict" : false
-				},
-				{
-					"name" : "bit_bus[7]",
+					"name" : "clk",
 					"strict" : false
 				},
 				{
@@ -40,7 +32,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "Counter_In",
 					"strict" : false
 				},
 				{
@@ -52,7 +44,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "Counter_In",
+					"name" : "Computer_Reset",
 					"strict" : false
 				}
 			]

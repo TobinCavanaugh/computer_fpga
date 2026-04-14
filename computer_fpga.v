@@ -1,15 +1,17 @@
 module computer_fpga 
 (
-	input wire clk, 				// FPGA clock
+	input wire clk, 				// FPGA clock. Shouldn't be used
 	
 	// Program Counter =======
-	inout [7:0] bit_bus, 		// GPIO pins for the program counter
+	inout [3:0] pc_bus, 		// GPIO pins for the program counter
 	
 	input wire Counter_Enable,
 	input wire Counter_Out,		// Output of the bit_bus
 	input wire Counter_In,		// Read in counter from the bit_bus
 	input wire Counter_Clear,	// Clear the program counter
 	input wire Computer_Reset,	// Reset the entire computer
+	
+	input wire Computer_Clk,	// Physically wired computer clk
 	
 	// ALU ===================
 	inout [7:0] reg_bus,			// Bus for ALU
@@ -25,33 +27,50 @@ module computer_fpga
 	input wire regs_reset, 		// Reset A & B registers
 	
 	input wire alu_out, 			// Dump the result to the bus
-	input wire alu_sub 			// Flag for A-B
+	input wire alu_sub, 			// Flag for A-B
+	
+	output wire heartbeat
 );
 
 reg [7:0] reg_A = 8'b0;
 reg [7:0] reg_B = 8'b0;
 reg [7:0] alu_result = 8'b0;
 
+reg [24:0] prescaler;
+reg slow_clk = 0;
+
+always @(posedge clk) begin
+    if (prescaler == 24_999_999) begin
+        prescaler <= 0;
+        slow_clk <= ~slow_clk;
+    end else begin
+        prescaler <= prescaler + 1;
+    end
+end
+
+assign heartbeat = slow_clk;
+
 program_counter pc_inst (
-	.bit_bus(bit_bus),
-	.clk(clk), // TODO USE PC WIRE
+	.bit_bus(pc_bus),
+	.clk(slow_clk),
    .Counter_Enable(Counter_Enable),
    .Counter_Out(Counter_Out),
-   .Counter_In(~Counter_In),
-   .Counter_Clear(~Counter_Clear)
+   .Counter_In(Counter_In),
+   .Counter_Clear(Counter_Clear),
+	.Counter_Reset(Computer_Reset)
 );
 
-cpu_alu alu_inst (
-	.clk(clk), // TODO USE PC WIRE
-	.reg_bus(reg_bus),
-	.reg_A_in(reg_A_in),
-	.reg_B_in(reg_B_in),
-	.reg_A_out(reg_A_out),
-	.reg_A_clr(reg_A_clr),
-	.reg_B_clr(reg_B_clr),
-	.regs_reset(regs_reset),
-	.alu_out(alu_out),
-	.alu_sub(alu_sub),
-);
+//cpu_alu alu_inst (
+//	.clk(Computer_Clk),
+//	.reg_bus(reg_bus),
+//	.reg_A_in(reg_A_in),
+//	.reg_B_in(reg_B_in),
+//	.reg_A_out(reg_A_out),
+//	.reg_A_clr(reg_A_clr),
+//	.reg_B_clr(reg_B_clr),
+//	.regs_reset(regs_reset),
+//	.alu_out(alu_out),
+//	.alu_sub(alu_sub)
+//);
 
 endmodule
