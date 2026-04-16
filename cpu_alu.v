@@ -22,10 +22,6 @@ module cpu_alu(
 
     assign alu_result = alu_sub ? (reg_A - reg_B) : (reg_A + reg_B);
 
-	// Tri state:
-	// High-impedence if nothing is enabled
-	// output alu_result if alu_out is enabled
-	// output reg_a if reg_A_out
     assign reg_bus = alu_out   ? alu_result :
                      reg_A_out ? reg_A      : 
                      8'bz;

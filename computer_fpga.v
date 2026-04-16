@@ -34,30 +34,30 @@ module computer_fpga
 
 reg [7:0] reg_A = 8'b0;
 reg [7:0] reg_B = 8'b0;
-reg [7:0] alu_result = 8'b0;
+//reg [7:0] alu_result = 8'b0;
 
-reg [24:0] prescaler;
-reg slow_clk = 0;
-
-always @(posedge clk) begin
-    if (prescaler == 24_999_999) begin
-        prescaler <= 0;
-        slow_clk <= ~slow_clk;
-    end else begin
-        prescaler <= prescaler + 1;
-    end
-end
-
-assign heartbeat = slow_clk;
+//reg [24:0] prescaler;
+//reg slow_clk = 0;
+//
+//always @(posedge clk) begin
+//    if (prescaler == 24_999_999) begin
+//        prescaler <= 0;
+//        slow_clk <= ~slow_clk;
+//    end else begin
+//        prescaler <= prescaler + 1;
+//    end
+//end
+//
+//assign heartbeat = slow_clk;
 
 program_counter pc_inst (
 	.bit_bus(pc_bus),
-	.clk(slow_clk),
-   .Counter_Enable(Counter_Enable),
-   .Counter_Out(Counter_Out),
-   .Counter_In(Counter_In),
-   .Counter_Clear(Counter_Clear),
-	.Counter_Reset(Computer_Reset)
+	.clk(Computer_Clk),
+   .Counter_Enable(1),
+   .Counter_Out(1),
+   .Counter_In(0),
+   .Counter_Clear(0),
+	.Counter_Reset(0)
 );
 
 //cpu_alu alu_inst (

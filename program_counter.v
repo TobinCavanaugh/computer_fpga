@@ -7,11 +7,11 @@ module program_counter (
     input wire       Counter_Clear,   // Control Signal reset/clear
 	 input wire 		Counter_Reset	  // Control Signal reset/clear
 );
-  reg [3:0] counter_reg = 4'h00;
+  reg [3:0] counter_reg = 4'h0;
 
 	always @(posedge clk or posedge Counter_Clear or posedge Counter_Reset) begin
 		if (Counter_Clear || Counter_Reset) begin
-			counter_reg <= 4'b0;
+			counter_reg <= 4'b0000;
 		end else begin
 			if (Counter_In) begin
 				counter_reg <= bit_bus;
@@ -21,6 +21,6 @@ module program_counter (
 		end
    end
 	 
-	assign bit_bus = Counter_Out ? counter_reg : 4'bzzzz;
- 
+	assign bit_bus = Counter_Out ? counter_reg : 4'bz;
+	//assign bit_bus = ~counter_reg;
 endmodule

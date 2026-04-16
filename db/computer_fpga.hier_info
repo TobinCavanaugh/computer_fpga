@@ -1,40 +1,15 @@
 |computer_fpga
-clk => slow_clk.CLK
-clk => prescaler[0].CLK
-clk => prescaler[1].CLK
-clk => prescaler[2].CLK
-clk => prescaler[3].CLK
-clk => prescaler[4].CLK
-clk => prescaler[5].CLK
-clk => prescaler[6].CLK
-clk => prescaler[7].CLK
-clk => prescaler[8].CLK
-clk => prescaler[9].CLK
-clk => prescaler[10].CLK
-clk => prescaler[11].CLK
-clk => prescaler[12].CLK
-clk => prescaler[13].CLK
-clk => prescaler[14].CLK
-clk => prescaler[15].CLK
-clk => prescaler[16].CLK
-clk => prescaler[17].CLK
-clk => prescaler[18].CLK
-clk => prescaler[19].CLK
-clk => prescaler[20].CLK
-clk => prescaler[21].CLK
-clk => prescaler[22].CLK
-clk => prescaler[23].CLK
-clk => prescaler[24].CLK
-pc_bus[0] <> program_counter:pc_inst.bit_bus[0]
-pc_bus[1] <> program_counter:pc_inst.bit_bus[1]
-pc_bus[2] <> program_counter:pc_inst.bit_bus[2]
-pc_bus[3] <> program_counter:pc_inst.bit_bus[3]
-Counter_Enable => program_counter:pc_inst.Counter_Enable
-Counter_Out => program_counter:pc_inst.Counter_Out
-Counter_In => program_counter:pc_inst.Counter_In
-Counter_Clear => program_counter:pc_inst.Counter_Clear
-Computer_Reset => program_counter:pc_inst.Counter_Reset
-Computer_Clk => ~NO_FANOUT~
+clk => ~NO_FANOUT~
+pc_bus[0] <> program_counter:pc_inst.bit_bus
+pc_bus[1] <> program_counter:pc_inst.bit_bus
+pc_bus[2] <> program_counter:pc_inst.bit_bus
+pc_bus[3] <> program_counter:pc_inst.bit_bus
+Counter_Enable => ~NO_FANOUT~
+Counter_Out => ~NO_FANOUT~
+Counter_In => ~NO_FANOUT~
+Counter_Clear => ~NO_FANOUT~
+Computer_Reset => ~NO_FANOUT~
+Computer_Clk => Computer_Clk.IN1
 reg_bus[0] <> <UNC>
 reg_bus[1] <> <UNC>
 reg_bus[2] <> <UNC>
@@ -51,7 +26,7 @@ reg_B_clr => ~NO_FANOUT~
 regs_reset => ~NO_FANOUT~
 alu_out => ~NO_FANOUT~
 alu_sub => ~NO_FANOUT~
-heartbeat << slow_clk.DB_MAX_OUTPUT_PORT_TYPE
+heartbeat << <GND>
 
 
 |computer_fpga|program_counter:pc_inst
